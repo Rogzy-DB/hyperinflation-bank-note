@@ -19,14 +19,14 @@
       "cause": "War reparations, money printing",
       "resolution": "Introduction of Rentenmark",
       "bills": [
-        "10k_Mark.png",
-        "100k_mark.png",
-        "1_billion_Notgeld.png",
-        "10_millards_mark.png",
         "100_billion_mark.png",
+        "10_millards_mark.png",
+        "1_billion_Notgeld.png",
         "F2-4 500_millions_mark.png",
-        "_million_mark.png",
         "million_mark.png",
+        "_million_mark.png",
+        "100k_mark.png",
+        "10k_Mark.png",
         "1000_mark.png"
       ],
       "featured": true
@@ -45,8 +45,8 @@
       "cause": "Post-WWI economic collapse",
       "resolution": "League of Nations intervention, Schilling introduction",
       "bills": [
-        "1000_Kronen.png",
-        "10000_Kronen.png"
+        "10000_Kronen.png",
+        "1000_Kronen.png"
       ],
       "featured": false
     },
@@ -64,10 +64,10 @@
       "cause": "WWII destruction, Soviet occupation",
       "resolution": "Introduction of Forint",
       "bills": [
-        "100_millions_MilPengo.png",
-        "1_millard_MilPengo.png",
+        "TizMillio_B_Pengo.png",
         "F2-5 1_million_B-Pengo.png",
-        "TizMillio_B_Pengo.png"
+        "1_millard_MilPengo.png",
+        "100_millions_MilPengo.png"
       ],
       "featured": true
     },
@@ -85,14 +85,15 @@
       "cause": "Land reform, money printing, economic mismanagement",
       "resolution": "Currency abandoned, dollarization",
       "bills": [
+        "100_Trillion_Zimbabwe.png",
         "100_Billion_Zimbabwe.png",
-        "500_millions_zimbabwe.png",
-        "F2-6 2_ZWD.png",
-        "F2-7 20k_cheque_ZWD.png",
-        "F2-8 50_cents_ZWN.png",
+        "F2-12 50_Trillions_ZWR.png",
         "F2-9 5_Billions_ZWN.png",
+        "500_millions_zimbabwe.png",
+        "F2-7 20k_cheque_ZWD.png",
+        "F2-6 2_ZWD.png",
         "F2-10 1_ZWR.png",
-        "F2-12 50_Trillions_ZWR.png"
+        "F2-8 50_cents_ZWN.png"
       ],
       "featured": true
     },
@@ -111,8 +112,8 @@
       "resolution": "Liberation, currency reform",
       "bills": [
         "100_milliards_Drachma.png",
-        "500_millions_drachma.png",
-        "2000_millions_drachma.png"
+        "2000_millions_drachma.png",
+        "500_millions_drachma.png"
       ],
       "featured": false
     },
@@ -130,8 +131,8 @@
       "cause": "War, sanctions, economic collapse",
       "resolution": "New Dinar pegged to Deutsche Mark",
       "bills": [
-        "5_milliard_dinar.png",
-        "50_millards_dinar.png"
+        "50_millards_dinar.png",
+        "5_milliard_dinar.png"
       ],
       "featured": false
     },
@@ -185,8 +186,8 @@
       "cause": "Debt crisis, fiscal deficit",
       "resolution": "Convertibility Plan, Peso pegged to USD",
       "bills": [
-        "10k_Australes.png",
-        "500k_pesos.png"
+        "500k_pesos.png",
+        "10k_Australes.png"
       ],
       "featured": false
     },
@@ -222,8 +223,8 @@
       "cause": "Mobutu regime corruption, political chaos",
       "resolution": "New Zaire, then Congolese Franc",
       "bills": [
-        "100k_Zaire.png",
-        "500k_Zaire.png"
+        "500k_Zaire.png",
+        "100k_Zaire.png"
       ],
       "featured": false
     },
@@ -241,8 +242,8 @@
       "cause": "Soviet collapse, price liberalization",
       "resolution": "Stabilization, 1998 redenomination",
       "bills": [
-        "1000_Rouble.png",
-        "50k_Rouble.png"
+        "50k_Rouble.png",
+        "1000_Rouble.png"
       ],
       "featured": false
     },
