@@ -1,0 +1,33 @@
+{
+  "periodId": "turkey-1990-2005",
+  "currency": "Lira",
+  "baseCurrency": "USD",
+  "unit": "Lira per 1 USD",
+  "useLogScale": true,
+  "sources": [
+    "Central Bank of Turkey",
+    "World Bank",
+    "FRED - Federal Reserve Economic Data"
+  ],
+  "dataPoints": [
+    { "date": "1990-01", "rate": 2310 },
+    { "date": "1990-12", "rate": 2930 },
+    { "date": "1991-12", "rate": 5080 },
+    { "date": "1992-12", "rate": 8560 },
+    { "date": "1993-12", "rate": 14500 },
+    { "date": "1994-04", "rate": 38000 },
+    { "date": "1994-12", "rate": 38500 },
+    { "date": "1995-12", "rate": 59500 },
+    { "date": "1996-12", "rate": 107500 },
+    { "date": "1997-12", "rate": 205000 },
+    { "date": "1998-12", "rate": 314500 },
+    { "date": "1999-12", "rate": 545500 },
+    { "date": "2000-12", "rate": 677000 },
+    { "date": "2001-02", "rate": 960000 },
+    { "date": "2001-10", "rate": 1650000 },
+    { "date": "2002-12", "rate": 1650000 },
+    { "date": "2003-12", "rate": 1400000 },
+    { "date": "2004-12", "rate": 1340000 }
+  ],
+  "notes": "Guinness World Records: 'least valuable currency' 1995-96, 1999-2004. Average ~38% annual inflation. 2001 crisis: rate went from 677,000 to 1,650,000 per USD. New Turkish Lira introduced Jan 1, 2005: 1,000,000:1 redenomination."
+}

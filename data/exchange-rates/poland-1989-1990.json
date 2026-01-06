@@ -1,0 +1,24 @@
+{
+  "periodId": "poland-1989-1990",
+  "currency": "Złoty",
+  "baseCurrency": "USD",
+  "unit": "Złoty per 1 USD",
+  "useLogScale": true,
+  "sources": [
+    "National Bank of Poland",
+    "IMF - Moderate Inflation in Poland"
+  ],
+  "dataPoints": [
+    { "date": "1989-01", "rate": 510 },
+    { "date": "1989-03", "rate": 780 },
+    { "date": "1989-06", "rate": 1200 },
+    { "date": "1989-08", "rate": 2150 },
+    { "date": "1989-10", "rate": 4500 },
+    { "date": "1989-12", "rate": 6500 },
+    { "date": "1990-01", "rate": 9500 },
+    { "date": "1990-06", "rate": 9500 },
+    { "date": "1990-12", "rate": 9500 },
+    { "date": "1991-05", "rate": 11100 }
+  ],
+  "notes": "October 1989 monthly inflation reached 55%. January 1990 fixed exchange rate at 9,500 PLZ/USD as IMF stabilization anchor. 1995 redenomination: 10,000 old złoty = 1 new złoty (PLN)."
+}

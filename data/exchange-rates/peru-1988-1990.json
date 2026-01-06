@@ -1,0 +1,26 @@
+{
+  "periodId": "peru-1988-1990",
+  "currency": "Inti",
+  "baseCurrency": "USD",
+  "unit": "Intis per 1 USD",
+  "useLogScale": true,
+  "sources": [
+    "Banco Central de Reserva del Perú",
+    "Manifold - The Case of Peru"
+  ],
+  "dataPoints": [
+    { "date": "1988-01", "rate": 33 },
+    { "date": "1988-06", "rate": 250 },
+    { "date": "1988-09", "rate": 900 },
+    { "date": "1988-12", "rate": 2000 },
+    { "date": "1989-03", "rate": 5500 },
+    { "date": "1989-06", "rate": 15000 },
+    { "date": "1989-09", "rate": 35000 },
+    { "date": "1989-12", "rate": 75000 },
+    { "date": "1990-03", "rate": 145000 },
+    { "date": "1990-06", "rate": 250000 },
+    { "date": "1990-07", "rate": 350000 },
+    { "date": "1990-08", "rate": 500000 }
+  ],
+  "notes": "September 1988 monthly inflation: 114%. 1988 annual inflation: 1,722%. 1989 annual inflation: 2,800%. August 1990 'Fuji shock': 397% monthly inflation. Nuevo sol introduced July 1991: 1 sol = 1,000,000 intis."
+}

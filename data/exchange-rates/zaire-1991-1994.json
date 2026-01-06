@@ -1,0 +1,26 @@
+{
+  "periodId": "zaire-1991-1994",
+  "currency": "Zaïre",
+  "baseCurrency": "USD",
+  "unit": "Zaïres per 1 USD (adjusted for redenominations)",
+  "useLogScale": true,
+  "sources": [
+    "Banque du Zaïre",
+    "IMF Working Paper - Zaïre's Hyperinflation 1990-96"
+  ],
+  "dataPoints": [
+    { "date": "1990-01", "rate": 719 },
+    { "date": "1990-12", "rate": 3000 },
+    { "date": "1991-06", "rate": 8500 },
+    { "date": "1991-08", "rate": 15300 },
+    { "date": "1991-12", "rate": 55000 },
+    { "date": "1992-06", "rate": 450000 },
+    { "date": "1992-12", "rate": 1990000 },
+    { "date": "1993-03", "rate": 2529000 },
+    { "date": "1993-10", "rate": 1 },
+    { "date": "1993-12", "rate": 110 },
+    { "date": "1994-06", "rate": 2500 },
+    { "date": "1994-09", "rate": 750000 }
+  ],
+  "notes": "1991-93 inflation: 3,000-4,500% annually. 1994: 9,800% officially, 90,000% by some measures. 'Nouveau zaïre' introduced Oct 1993 at 3,000,000:1 ratio. Economy dollarized by end-1993. Currency stock worth only $46M at parallel rate."
+}

@@ -1,0 +1,22 @@
+{
+  "periodId": "georgia-1993-1994",
+  "currency": "Coupon (Kuponi)",
+  "baseCurrency": "USD",
+  "unit": "Kuponi per 1 USD",
+  "useLogScale": true,
+  "sources": [
+    "National Bank of Georgia",
+    "IMF Working Paper - The Georgian Hyperinflation and Stabilization (1999)"
+  ],
+  "dataPoints": [
+    { "date": "1993-04", "rate": 2 },
+    { "date": "1993-06", "rate": 25 },
+    { "date": "1993-09", "rate": 600 },
+    { "date": "1993-12", "rate": 4500 },
+    { "date": "1994-03", "rate": 85000 },
+    { "date": "1994-06", "rate": 450000 },
+    { "date": "1994-09", "rate": 1800000 },
+    { "date": "1994-12", "rate": 2400000 }
+  ],
+  "notes": "Kuponi replaced Soviet ruble at par on April 5, 1993. 1994 annual inflation: 15,607%. Peak monthly inflation: 7,000% (late 1994). Lari introduced October 2, 1995 at 1 lari = 1,000,000 kuponi."
+}

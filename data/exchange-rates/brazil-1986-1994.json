@@ -1,0 +1,33 @@
+{
+  "periodId": "brazil-1986-1994",
+  "currency": "Cruzado/Cruzeiro",
+  "baseCurrency": "USD",
+  "unit": "Currency units per 1 USD (adjusted for redenominations)",
+  "useLogScale": true,
+  "sources": [
+    "Banco Central do Brasil",
+    "Manifold - The Case of Brazil"
+  ],
+  "dataPoints": [
+    { "date": "1986-03", "rate": 14 },
+    { "date": "1986-12", "rate": 15 },
+    { "date": "1987-06", "rate": 28 },
+    { "date": "1987-12", "rate": 72 },
+    { "date": "1988-06", "rate": 185 },
+    { "date": "1988-12", "rate": 560 },
+    { "date": "1989-01", "rate": 1 },
+    { "date": "1989-06", "rate": 2.5 },
+    { "date": "1989-12", "rate": 9 },
+    { "date": "1990-01", "rate": 15 },
+    { "date": "1990-03", "rate": 73 },
+    { "date": "1990-06", "rate": 95 },
+    { "date": "1990-12", "rate": 180 },
+    { "date": "1991-12", "rate": 1050 },
+    { "date": "1992-12", "rate": 9800 },
+    { "date": "1993-08", "rate": 100 },
+    { "date": "1993-12", "rate": 400 },
+    { "date": "1994-06", "rate": 2750 },
+    { "date": "1994-07", "rate": 1 }
+  ],
+  "notes": "Multiple currency reforms: Cruzado (1986), Cruzado Novo (1989, 1000:1), Cruzeiro (1990, 1:1), Cruzeiro Real (1993, 1000:1), Real (1994, 2750:1). Real Plan (July 1994) finally stabilized currency at 1 real = 1 USD."
+}

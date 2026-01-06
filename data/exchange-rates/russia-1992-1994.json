@@ -1,0 +1,28 @@
+{
+  "periodId": "russia-1992-1994",
+  "currency": "Ruble",
+  "baseCurrency": "USD",
+  "unit": "Rubles per 1 USD",
+  "useLogScale": true,
+  "sources": [
+    "Central Bank of Russia",
+    "IMF Working Paper - Exchange Rate Determinants in Russia 1992-1993"
+  ],
+  "dataPoints": [
+    { "date": "1992-01", "rate": 110 },
+    { "date": "1992-04", "rate": 125 },
+    { "date": "1992-07", "rate": 125 },
+    { "date": "1992-10", "rate": 350 },
+    { "date": "1992-12", "rate": 415 },
+    { "date": "1993-03", "rate": 680 },
+    { "date": "1993-06", "rate": 1050 },
+    { "date": "1993-09", "rate": 1165 },
+    { "date": "1993-12", "rate": 1250 },
+    { "date": "1994-03", "rate": 1750 },
+    { "date": "1994-06", "rate": 1980 },
+    { "date": "1994-09", "rate": 2200 },
+    { "date": "1994-10", "rate": 3926 },
+    { "date": "1994-12", "rate": 3550 }
+  ],
+  "notes": "January 1992 price liberalization caused 245% inflation in one month. 1992 annual inflation: 2,509%. 'Black Tuesday' Oct 11, 1994: ruble fell 27% in one day. 1998 redenomination: 1000:1."
+}

@@ -1,0 +1,34 @@
+{
+  "periodId": "austria-1921-1922",
+  "currency": "Krone",
+  "baseCurrency": "USD",
+  "unit": "Kronen per 1 USD",
+  "useLogScale": true,
+  "sources": [
+    "Oesterreichische Nationalbank",
+    "ECAEF - Austrian Hyperinflation After WWI"
+  ],
+  "dataPoints": [
+    { "date": "1919-01", "rate": 16 },
+    { "date": "1919-06", "rate": 30 },
+    { "date": "1919-12", "rate": 105 },
+    { "date": "1920-01", "rate": 140 },
+    { "date": "1920-06", "rate": 180 },
+    { "date": "1920-12", "rate": 280 },
+    { "date": "1921-01", "rate": 310 },
+    { "date": "1921-06", "rate": 595 },
+    { "date": "1921-08", "rate": 1240 },
+    { "date": "1921-10", "rate": 3300 },
+    { "date": "1921-12", "rate": 5275 },
+    { "date": "1922-01", "rate": 6100 },
+    { "date": "1922-03", "rate": 8500 },
+    { "date": "1922-05", "rate": 14500 },
+    { "date": "1922-06", "rate": 22500 },
+    { "date": "1922-07", "rate": 39000 },
+    { "date": "1922-08", "rate": 77500 },
+    { "date": "1922-09", "rate": 74000 },
+    { "date": "1922-10", "rate": 71000 },
+    { "date": "1923-05", "rate": 70800 }
+  ],
+  "notes": "Stabilized in October 1922 with League of Nations loan. Peak monthly inflation reached 150% (Jun-Aug 1922). Prices rose by factor of 14,000 compared to prewar. Currency stabilized at 14,400 paper Kronen = 1 gold Krone."
+}

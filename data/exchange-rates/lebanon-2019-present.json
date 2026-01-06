@@ -1,0 +1,33 @@
+{
+  "periodId": "lebanon-2019-present",
+  "currency": "Pound (Lira)",
+  "baseCurrency": "USD",
+  "unit": "Lebanese Pounds per 1 USD (parallel market rate)",
+  "useLogScale": true,
+  "sources": [
+    "DolarToday Lebanon (lebanese-lira.org)",
+    "Lira Rate",
+    "BLOMINVEST Bank"
+  ],
+  "dataPoints": [
+    { "date": "2019-07", "rate": 1600 },
+    { "date": "2019-10", "rate": 1700 },
+    { "date": "2019-12", "rate": 2100 },
+    { "date": "2020-04", "rate": 3000 },
+    { "date": "2020-06", "rate": 5000 },
+    { "date": "2020-08", "rate": 7500 },
+    { "date": "2020-12", "rate": 8500 },
+    { "date": "2021-03", "rate": 14000 },
+    { "date": "2021-06", "rate": 15200 },
+    { "date": "2021-08", "rate": 19000 },
+    { "date": "2021-12", "rate": 27000 },
+    { "date": "2022-06", "rate": 27500 },
+    { "date": "2022-11", "rate": 37000 },
+    { "date": "2023-02", "rate": 63000 },
+    { "date": "2023-03", "rate": 134900 },
+    { "date": "2023-07", "rate": 90000 },
+    { "date": "2023-12", "rate": 89500 },
+    { "date": "2024-05", "rate": 89600 }
+  ],
+  "notes": "Official peg was 1,507.5 LBP/USD from 1997 until October 2019. Peak: 134,900 LBP/USD on March 21, 2023. Currency lost 98%+ of value. 2023 inflation: 221%. Described as one of worst financial crises since 19th century. Economy extensively dollarized."
+}

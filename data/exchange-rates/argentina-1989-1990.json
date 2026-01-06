@@ -1,0 +1,27 @@
+{
+  "periodId": "argentina-1989-1990",
+  "currency": "Austral",
+  "baseCurrency": "USD",
+  "unit": "Australes per 1 USD",
+  "useLogScale": true,
+  "sources": [
+    "Banco Central de la República Argentina",
+    "Manifold - The Case of Argentina"
+  ],
+  "dataPoints": [
+    { "date": "1989-01", "rate": 18 },
+    { "date": "1989-03", "rate": 55 },
+    { "date": "1989-05", "rate": 180 },
+    { "date": "1989-06", "rate": 350 },
+    { "date": "1989-07", "rate": 650 },
+    { "date": "1989-09", "rate": 950 },
+    { "date": "1989-12", "rate": 1950 },
+    { "date": "1990-02", "rate": 5500 },
+    { "date": "1990-03", "rate": 5800 },
+    { "date": "1990-06", "rate": 5100 },
+    { "date": "1990-09", "rate": 5600 },
+    { "date": "1990-12", "rate": 5100 },
+    { "date": "1991-04", "rate": 10000 }
+  ],
+  "notes": "1989 annual inflation: ~5,000%. March 1989 to March 1990: over 20,000%. March 1990 monthly rate: 100%. Convertibility Plan (April 1991): fixed at 10,000 australes = 1 USD. January 1992: 1 peso = 10,000 australes = 1 USD."
+}

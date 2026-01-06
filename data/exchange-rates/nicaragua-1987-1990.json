@@ -1,0 +1,25 @@
+{
+  "periodId": "nicaragua-1987-1990",
+  "currency": "Córdoba",
+  "baseCurrency": "USD",
+  "unit": "Córdobas per 1 USD (adjusted for redenominations)",
+  "useLogScale": true,
+  "sources": [
+    "Banco Central de Nicaragua",
+    "NBER - Nicaragua Economic Analysis"
+  ],
+  "dataPoints": [
+    { "date": "1987-01", "rate": 70 },
+    { "date": "1987-06", "rate": 1000 },
+    { "date": "1987-12", "rate": 5500 },
+    { "date": "1988-02", "rate": 10 },
+    { "date": "1988-06", "rate": 90 },
+    { "date": "1988-12", "rate": 920 },
+    { "date": "1989-06", "rate": 15000 },
+    { "date": "1989-12", "rate": 45000 },
+    { "date": "1990-02", "rate": 180000 },
+    { "date": "1990-06", "rate": 1500000 },
+    { "date": "1990-12", "rate": 3200000 }
+  ],
+  "notes": "1987 annual inflation: 14,000%. 'Operación Berta' Feb 1988: 1000:1 redenomination, rate set at 10 new córdobas/USD. Córdoba oro introduced mid-1990 at par with USD. By end 1990: 3.2 million new córdobas = 1 USD on black market."
+}

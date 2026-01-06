@@ -1,0 +1,26 @@
+{
+  "periodId": "angola-1991-1999",
+  "currency": "Kwanza",
+  "baseCurrency": "USD",
+  "unit": "Kwanzas per 1 USD (adjusted for redenominations)",
+  "useLogScale": true,
+  "sources": [
+    "Banco Nacional de Angola",
+    "World Bank Economic Data"
+  ],
+  "dataPoints": [
+    { "date": "1990-12", "rate": 30 },
+    { "date": "1991-12", "rate": 180 },
+    { "date": "1992-12", "rate": 2500 },
+    { "date": "1993-12", "rate": 35000 },
+    { "date": "1994-12", "rate": 320000 },
+    { "date": "1995-07", "rate": 1 },
+    { "date": "1995-12", "rate": 18 },
+    { "date": "1996-12", "rate": 230000 },
+    { "date": "1997-12", "rate": 280000 },
+    { "date": "1998-12", "rate": 500000 },
+    { "date": "1999-09", "rate": 1000000 },
+    { "date": "1999-12", "rate": 1 }
+  ],
+  "notes": "1996 inflation: 4,146%. Multiple redenominations: Kwanza reajustado (1995, 1000:1), New kwanza (1999, 1,000,000:1). At several points, Angola's currency was world's least valued. Civil war (1975-2002) primary driver."
+}

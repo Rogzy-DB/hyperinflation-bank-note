@@ -1,0 +1,25 @@
+{
+  "periodId": "philippines-1942-1945",
+  "currency": "Japanese Occupation Peso",
+  "baseCurrency": "USD",
+  "unit": "Price index (rice per sack in occupation pesos)",
+  "useLogScale": true,
+  "sources": [
+    "Hanke & Krus (2012) World Hyperinflations",
+    "University of San Diego - Philippine Economy During Japanese Occupation"
+  ],
+  "dataPoints": [
+    { "date": "1942-01", "rate": 10 },
+    { "date": "1942-06", "rate": 15 },
+    { "date": "1942-12", "rate": 25 },
+    { "date": "1943-06", "rate": 80 },
+    { "date": "1943-12", "rate": 350 },
+    { "date": "1944-01", "rate": 600 },
+    { "date": "1944-06", "rate": 3000 },
+    { "date": "1944-09", "rate": 8000 },
+    { "date": "1944-12", "rate": 15000 },
+    { "date": "1945-02", "rate": 60000 },
+    { "date": "1945-06", "rate": 1375000 }
+  ],
+  "notes": "Japanese Invasion Money (JIM) / 'Mickey Mouse money'. Pre-war peso pegged at 2:1 to USD. Monthly inflation exceeded 40% by late 1943, 60% by Jan 1944. Rice price increased 137,500% during occupation. Currency became worthless at liberation. GDP fell 70%."
+}

@@ -1,0 +1,26 @@
+{
+  "periodId": "greece-1941-1944",
+  "currency": "Drachma",
+  "baseCurrency": "USD",
+  "unit": "Drachmas per 1 USD (estimated from price indices)",
+  "useLogScale": true,
+  "sources": [
+    "Bank of Greece",
+    "Makinen, G. (1986) The Greek Hyperinflation"
+  ],
+  "dataPoints": [
+    { "date": "1941-04", "rate": 150 },
+    { "date": "1941-12", "rate": 1100 },
+    { "date": "1942-06", "rate": 6500 },
+    { "date": "1942-12", "rate": 19000 },
+    { "date": "1943-06", "rate": 95000 },
+    { "date": "1943-12", "rate": 2000000 },
+    { "date": "1944-03", "rate": 35000000 },
+    { "date": "1944-06", "rate": 1500000000 },
+    { "date": "1944-08", "rate": 50000000000 },
+    { "date": "1944-09", "rate": 1500000000000 },
+    { "date": "1944-10", "rate": 245000000000000 },
+    { "date": "1944-11", "rate": 4000000000000000 }
+  ],
+  "notes": "German/Italian/Bulgarian occupation (Apr 1941 - Oct 1944). Prices doubled every 4.3 days at peak. October 1944 saw 13,800% monthly inflation. Highest note: 100 trillion drachmas. Reformed November 1944: 50 billion old = 1 new drachma."
+}

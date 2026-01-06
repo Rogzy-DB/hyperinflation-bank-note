@@ -1,0 +1,30 @@
+{
+  "periodId": "venezuela-2016-2021",
+  "currency": "Bolívar",
+  "baseCurrency": "USD",
+  "unit": "Bolívares per 1 USD (parallel market, adjusted for redenominations)",
+  "useLogScale": true,
+  "sources": [
+    "DolarToday",
+    "Federal Reserve Bank of St. Louis (FRED)"
+  ],
+  "dataPoints": [
+    { "date": "2016-02", "rate": 1000 },
+    { "date": "2016-06", "rate": 1800 },
+    { "date": "2016-12", "rate": 4300 },
+    { "date": "2017-03", "rate": 6500 },
+    { "date": "2017-07", "rate": 10000 },
+    { "date": "2017-09", "rate": 20000 },
+    { "date": "2017-12", "rate": 105000 },
+    { "date": "2018-03", "rate": 245000 },
+    { "date": "2018-06", "rate": 3500000 },
+    { "date": "2018-08", "rate": 6000000 },
+    { "date": "2018-10", "rate": 100 },
+    { "date": "2019-01", "rate": 1000 },
+    { "date": "2019-07", "rate": 10000 },
+    { "date": "2020-04", "rate": 100000 },
+    { "date": "2020-11", "rate": 1000000 },
+    { "date": "2021-08", "rate": 4146022 }
+  ],
+  "notes": "Two redenominations: Aug 2018 (100,000:1 to bolívar soberano), Oct 2021 (1,000,000:1 to bolívar digital). Parallel market rates diverged significantly from official rates. Economy extensively dollarized."
+}

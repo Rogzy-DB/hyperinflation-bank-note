@@ -1,0 +1,26 @@
+{
+  "periodId": "hungary-1945-1946",
+  "currency": "Pengő",
+  "baseCurrency": "USD",
+  "unit": "Pengő per 1 USD",
+  "useLogScale": true,
+  "sources": [
+    "Hungarian National Bank",
+    "Hyperinflation: A World History - Hungary 1946 (ResearchGate)"
+  ],
+  "dataPoints": [
+    { "date": "1945-08", "rate": 1320 },
+    { "date": "1945-09", "rate": 3800 },
+    { "date": "1945-10", "rate": 8200 },
+    { "date": "1945-11", "rate": 35000 },
+    { "date": "1945-12", "rate": 128000 },
+    { "date": "1946-01", "rate": 795000 },
+    { "date": "1946-02", "rate": 4350000 },
+    { "date": "1946-03", "rate": 17800000 },
+    { "date": "1946-04", "rate": 193000000 },
+    { "date": "1946-05", "rate": 11267000000 },
+    { "date": "1946-06", "rate": 4600000000000 },
+    { "date": "1946-07", "rate": 59000000000000000000 }
+  ],
+  "notes": "Worst hyperinflation in history. Peak monthly inflation: 41.9 quadrillion percent (July 1946). Prices doubled every 15.3 hours. Replaced by forint on August 18, 1946 at rate of 4×10^29 pengő = 1 forint."
+}
