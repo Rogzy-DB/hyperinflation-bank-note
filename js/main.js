@@ -215,30 +215,9 @@ function setupEventListeners() {
 
 // Handle download all
 function handleDownloadAll() {
-    // For now, link to GitHub releases or show a message
-    // This will be implemented when we set up the download infrastructure
-    const downloadUrl = 'https://github.com/YOUR_USERNAME/hyperinflation-bank-note/releases';
-
-    // Check if we have a local ZIP available
-    const localZip = 'assets/downloads/all-banknotes.zip';
-
-    fetch(localZip, { method: 'HEAD' })
-        .then(response => {
-            if (response.ok) {
-                // Local ZIP exists, download it
-                const link = document.createElement('a');
-                link.href = localZip;
-                link.download = 'hyperinflation-banknotes-collection.zip';
-                link.click();
-            } else {
-                // Redirect to GitHub releases
-                window.open(downloadUrl, '_blank');
-            }
-        })
-        .catch(() => {
-            // Fallback to GitHub releases
-            window.open(downloadUrl, '_blank');
-        });
+    // Download the entire repository as ZIP from GitHub
+    const downloadUrl = 'https://github.com/Rogzy-DB/hyperinflation-bank-note/archive/refs/heads/main.zip';
+    window.open(downloadUrl, '_blank');
 }
 
 // Show error message

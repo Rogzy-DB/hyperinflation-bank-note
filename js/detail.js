@@ -395,26 +395,9 @@ function setupEventListeners() {
 
 // Handle download
 function handleDownload() {
-    // For now, link to GitHub releases
-    const downloadUrl = `https://github.com/YOUR_USERNAME/hyperinflation-bank-note/releases`;
-
-    // Check for local ZIP
-    const localZip = `../assets/downloads/${periodData.id}.zip`;
-
-    fetch(localZip, { method: 'HEAD' })
-        .then(response => {
-            if (response.ok) {
-                const link = document.createElement('a');
-                link.href = localZip;
-                link.download = `${periodData.country}-hyperinflation-banknotes.zip`;
-                link.click();
-            } else {
-                window.open(downloadUrl, '_blank');
-            }
-        })
-        .catch(() => {
-            window.open(downloadUrl, '_blank');
-        });
+    // Download the entire repository as ZIP from GitHub
+    const downloadUrl = 'https://github.com/Rogzy-DB/hyperinflation-bank-note/archive/refs/heads/main.zip';
+    window.open(downloadUrl, '_blank');
 }
 
 // Show error
