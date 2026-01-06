@@ -213,11 +213,107 @@ function setupEventListeners() {
     elements.downloadAllBtn.addEventListener('click', handleDownloadAll);
 }
 
-// Handle download all
-function handleDownloadAll() {
-    // Download the entire repository as ZIP from GitHub
-    const downloadUrl = 'https://github.com/Rogzy-DB/hyperinflation-bank-note/archive/refs/heads/main.zip';
-    window.open(downloadUrl, '_blank');
+// Handle download all bills
+async function handleDownloadAll() {
+    const btn = elements.downloadAllBtn;
+    const originalText = btn.innerHTML;
+
+    // Update button state
+    btn.disabled = true;
+    btn.innerHTML = `
+        <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+        </svg>
+        Preparing ZIP...
+    `;
+
+    try {
+        const zip = new JSZip();
+
+        // Collect all bills from all periods
+        const allBills = [];
+        periodsData.forEach(period => {
+            if (period.bills && period.bills.length > 0) {
+                period.bills.forEach(bill => {
+                    allBills.push({
+                        filename: bill,
+                        folder: `${period.country} (${period.periodStart}-${period.periodEnd})`
+                    });
+                });
+            }
+        });
+
+        if (allBills.length === 0) {
+            alert('No bills available to download.');
+            return;
+        }
+
+        // Update button with progress
+        let downloaded = 0;
+        const total = allBills.length;
+
+        // Download each bill and add to ZIP
+        const downloadPromises = allBills.map(async (billInfo) => {
+            const webPath = `assets/bills/web/${billInfo.filename.replace('.png', '.jpg')}`;
+            const originalPath = `assets/bills/originals/${billInfo.filename}`;
+
+            try {
+                // Try web version first
+                let response = await fetch(webPath);
+                let filename = billInfo.filename.replace('.png', '.jpg');
+
+                // Fallback to original if web version not found
+                if (!response.ok) {
+                    response = await fetch(originalPath);
+                    filename = billInfo.filename;
+                }
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    zip.folder(billInfo.folder).file(filename, blob);
+                }
+            } catch (error) {
+                console.warn(`Failed to download: ${billInfo.filename}`);
+            }
+
+            downloaded++;
+            btn.innerHTML = `
+                <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+                </svg>
+                ${downloaded}/${total} bills...
+            `;
+        });
+
+        await Promise.all(downloadPromises);
+
+        // Generate and download ZIP
+        btn.innerHTML = `
+            <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+            </svg>
+            Creating ZIP...
+        `;
+
+        const content = await zip.generateAsync({ type: 'blob' });
+
+        // Create download link
+        const url = URL.createObjectURL(content);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'hyperinflation-banknotes-collection.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+    } catch (error) {
+        console.error('Download failed:', error);
+        alert('Failed to create download. Please try again.');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+    }
 }
 
 // Show error message

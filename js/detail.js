@@ -393,11 +393,96 @@ function setupEventListeners() {
     elements.downloadPeriodBtn.addEventListener('click', handleDownload);
 }
 
-// Handle download
-function handleDownload() {
-    // Download the entire repository as ZIP from GitHub
-    const downloadUrl = 'https://github.com/Rogzy-DB/hyperinflation-bank-note/archive/refs/heads/main.zip';
-    window.open(downloadUrl, '_blank');
+// Handle download for current period's bills
+async function handleDownload() {
+    const btn = elements.downloadPeriodBtn;
+    const originalText = btn.innerHTML;
+
+    if (!periodData || !periodData.bills || periodData.bills.length === 0) {
+        alert('No bills available for this period.');
+        return;
+    }
+
+    // Update button state
+    btn.disabled = true;
+    btn.innerHTML = `
+        <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+        </svg>
+        Preparing ZIP...
+    `;
+
+    try {
+        const zip = new JSZip();
+        const bills = periodData.bills;
+
+        // Update button with progress
+        let downloaded = 0;
+        const total = bills.length;
+
+        // Download each bill and add to ZIP
+        const downloadPromises = bills.map(async (bill) => {
+            const webPath = `../assets/bills/web/${bill.replace('.png', '.jpg')}`;
+            const originalPath = `../assets/bills/originals/${bill}`;
+
+            try {
+                // Try web version first
+                let response = await fetch(webPath);
+                let filename = bill.replace('.png', '.jpg');
+
+                // Fallback to original if web version not found
+                if (!response.ok) {
+                    response = await fetch(originalPath);
+                    filename = bill;
+                }
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    zip.file(filename, blob);
+                }
+            } catch (error) {
+                console.warn(`Failed to download: ${bill}`);
+            }
+
+            downloaded++;
+            btn.innerHTML = `
+                <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+                </svg>
+                ${downloaded}/${total} bills...
+            `;
+        });
+
+        await Promise.all(downloadPromises);
+
+        // Generate and download ZIP
+        btn.innerHTML = `
+            <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+            </svg>
+            Creating ZIP...
+        `;
+
+        const content = await zip.generateAsync({ type: 'blob' });
+
+        // Create download link with period-specific filename
+        const zipFilename = `${periodData.country.toLowerCase().replace(/\s+/g, '-')}-${periodData.periodStart}-${periodData.periodEnd}-banknotes.zip`;
+        const url = URL.createObjectURL(content);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = zipFilename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+    } catch (error) {
+        console.error('Download failed:', error);
+        alert('Failed to create download. Please try again.');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+    }
 }
 
 // Show error
