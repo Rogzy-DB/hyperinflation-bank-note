@@ -1,0 +1,376 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-01-06",
+    "description": "Hyperinflation periods database"
+  },
+  "periods": [
+    {
+      "id": "germany-1921-1923",
+      "country": "Germany",
+      "countryCode": "DE",
+      "currency": "Papiermark",
+      "currencySymbol": "ℳ",
+      "periodStart": "1921",
+      "periodEnd": "1923",
+      "peakInflation": "29,500% monthly",
+      "peakMonth": "October 1923",
+      "exchangeRatePeak": "4.2 trillion marks per USD",
+      "cause": "War reparations, money printing",
+      "resolution": "Introduction of Rentenmark",
+      "bills": [
+        "10k_Mark.png",
+        "100k_mark.png",
+        "1_billion_Notgeld.png",
+        "10_millards_mark.png",
+        "100_billion_mark.png",
+        "F2-4 500_millions_mark.png",
+        "_million_mark.png",
+        "million_mark.png",
+        "1000_mark.png"
+      ],
+      "featured": true
+    },
+    {
+      "id": "austria-1921-1922",
+      "country": "Austria",
+      "countryCode": "AT",
+      "currency": "Krone",
+      "currencySymbol": "K",
+      "periodStart": "1921",
+      "periodEnd": "1922",
+      "peakInflation": "1,426%",
+      "peakMonth": "August 1922",
+      "exchangeRatePeak": "14,400 kronen per USD",
+      "cause": "Post-WWI economic collapse",
+      "resolution": "League of Nations intervention, Schilling introduction",
+      "bills": [
+        "1000_Kronen.png",
+        "10000_Kronen.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "hungary-1945-1946",
+      "country": "Hungary",
+      "countryCode": "HU",
+      "currency": "Pengő",
+      "currencySymbol": "P",
+      "periodStart": "1945",
+      "periodEnd": "1946",
+      "peakInflation": "41.9 quadrillion % monthly",
+      "peakMonth": "July 1946",
+      "exchangeRatePeak": "460 octillion pengő per USD",
+      "cause": "WWII destruction, Soviet occupation",
+      "resolution": "Introduction of Forint",
+      "bills": [
+        "100_millions_MilPengo.png",
+        "1_millard_MilPengo.png",
+        "F2-5 1_million_B-Pengo.png",
+        "TizMillio_B_Pengo.png"
+      ],
+      "featured": true
+    },
+    {
+      "id": "zimbabwe-2007-2009",
+      "country": "Zimbabwe",
+      "countryCode": "ZW",
+      "currency": "Zimbabwean Dollar",
+      "currencySymbol": "Z$",
+      "periodStart": "2007",
+      "periodEnd": "2009",
+      "peakInflation": "79.6 billion % monthly",
+      "peakMonth": "November 2008",
+      "exchangeRatePeak": "10^25 ZWD per USD",
+      "cause": "Land reform, money printing, economic mismanagement",
+      "resolution": "Currency abandoned, dollarization",
+      "bills": [
+        "100_Billion_Zimbabwe.png",
+        "500_millions_zimbabwe.png",
+        "F2-6 2_ZWD.png",
+        "F2-7 20k_cheque_ZWD.png",
+        "F2-8 50_cents_ZWN.png",
+        "F2-9 5_Billions_ZWN.png",
+        "F2-10 1_ZWR.png",
+        "F2-12 50_Trillions_ZWR.png"
+      ],
+      "featured": true
+    },
+    {
+      "id": "greece-1941-1944",
+      "country": "Greece",
+      "countryCode": "GR",
+      "currency": "Drachma",
+      "currencySymbol": "₯",
+      "periodStart": "1941",
+      "periodEnd": "1944",
+      "peakInflation": "8.55 billion % monthly",
+      "peakMonth": "October 1944",
+      "exchangeRatePeak": "50 quadrillion drachmas per USD",
+      "cause": "Nazi occupation, food requisition",
+      "resolution": "Liberation, currency reform",
+      "bills": [
+        "100_milliards_Drachma.png",
+        "500_millions_drachma.png",
+        "2000_millions_drachma.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "yugoslavia-1992-1994",
+      "country": "Yugoslavia",
+      "countryCode": "RS",
+      "currency": "Dinar",
+      "currencySymbol": "din",
+      "periodStart": "1992",
+      "periodEnd": "1994",
+      "peakInflation": "313 million % monthly",
+      "peakMonth": "January 1994",
+      "exchangeRatePeak": "1.2 × 10^27 dinars per USD",
+      "cause": "War, sanctions, economic collapse",
+      "resolution": "New Dinar pegged to Deutsche Mark",
+      "bills": [
+        "5_milliard_dinar.png",
+        "50_millards_dinar.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "brazil-1986-1994",
+      "country": "Brazil",
+      "countryCode": "BR",
+      "currency": "Cruzado / Cruzeiro",
+      "currencySymbol": "Cz$",
+      "periodStart": "1986",
+      "periodEnd": "1994",
+      "peakInflation": "2,477% annually",
+      "peakMonth": "March 1990",
+      "exchangeRatePeak": "Multiple currency resets",
+      "cause": "Debt crisis, political instability",
+      "resolution": "Real Plan, introduction of Real",
+      "bills": [
+        "1000_Cruzados.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "peru-1988-1990",
+      "country": "Peru",
+      "countryCode": "PE",
+      "currency": "Inti",
+      "currencySymbol": "I/.",
+      "periodStart": "1988",
+      "periodEnd": "1990",
+      "peakInflation": "7,649% annually",
+      "peakMonth": "August 1990",
+      "exchangeRatePeak": "1 million intis per USD",
+      "cause": "Garcia government policies, debt default",
+      "resolution": "Fujishock reforms, Nuevo Sol",
+      "bills": [
+        "1_million_Intis.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "argentina-1989-1990",
+      "country": "Argentina",
+      "countryCode": "AR",
+      "currency": "Austral",
+      "currencySymbol": "₳",
+      "periodStart": "1989",
+      "periodEnd": "1990",
+      "peakInflation": "3,079% annually",
+      "peakMonth": "July 1989",
+      "exchangeRatePeak": "10,000 australes per USD",
+      "cause": "Debt crisis, fiscal deficit",
+      "resolution": "Convertibility Plan, Peso pegged to USD",
+      "bills": [
+        "10k_Australes.png",
+        "500k_pesos.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "nicaragua-1987-1990",
+      "country": "Nicaragua",
+      "countryCode": "NI",
+      "currency": "Córdoba",
+      "currencySymbol": "C$",
+      "periodStart": "1987",
+      "periodEnd": "1990",
+      "peakInflation": "33,548% annually",
+      "peakMonth": "1988",
+      "exchangeRatePeak": "Multiple redenominations",
+      "cause": "Civil war, US embargo, Sandinista policies",
+      "resolution": "Currency reform, new Córdoba",
+      "bills": [
+        "200k_nicaragua.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "zaire-1991-1994",
+      "country": "Zaire",
+      "countryCode": "CD",
+      "currency": "Zaïre",
+      "currencySymbol": "Z",
+      "periodStart": "1991",
+      "periodEnd": "1994",
+      "peakInflation": "23,773% annually",
+      "peakMonth": "1994",
+      "exchangeRatePeak": "Billions of zaïres per USD",
+      "cause": "Mobutu regime corruption, political chaos",
+      "resolution": "New Zaire, then Congolese Franc",
+      "bills": [
+        "100k_Zaire.png",
+        "500k_Zaire.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "russia-1992-1994",
+      "country": "Russia",
+      "countryCode": "RU",
+      "currency": "Ruble",
+      "currencySymbol": "₽",
+      "periodStart": "1992",
+      "periodEnd": "1994",
+      "peakInflation": "2,520% annually",
+      "peakMonth": "1992",
+      "exchangeRatePeak": "3,550 rubles per USD",
+      "cause": "Soviet collapse, price liberalization",
+      "resolution": "Stabilization, 1998 redenomination",
+      "bills": [
+        "1000_Rouble.png",
+        "50k_Rouble.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "poland-1989-1990",
+      "country": "Poland",
+      "countryCode": "PL",
+      "currency": "Złoty",
+      "currencySymbol": "zł",
+      "periodStart": "1989",
+      "periodEnd": "1990",
+      "peakInflation": "585% annually",
+      "peakMonth": "October 1989",
+      "exchangeRatePeak": "9,500 złoty per USD",
+      "cause": "Communist collapse, transition shock",
+      "resolution": "Balcerowicz Plan, shock therapy",
+      "bills": [
+        "10k_Zlotych.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "georgia-1993-1994",
+      "country": "Georgia",
+      "countryCode": "GE",
+      "currency": "Coupon",
+      "currencySymbol": "",
+      "periodStart": "1993",
+      "periodEnd": "1994",
+      "peakInflation": "15,607% annually",
+      "peakMonth": "September 1994",
+      "exchangeRatePeak": "Millions of coupons per USD",
+      "cause": "Civil war, Russian gas cutoff",
+      "resolution": "Introduction of Lari",
+      "bills": [
+        "1_million_georgia.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "turkey-1990-2005",
+      "country": "Turkey",
+      "countryCode": "TR",
+      "currency": "Lira",
+      "currencySymbol": "₺",
+      "periodStart": "1990",
+      "periodEnd": "2005",
+      "peakInflation": "105% annually average",
+      "peakMonth": "2001 crisis peak",
+      "exchangeRatePeak": "1.5 million lira per USD",
+      "cause": "Chronic fiscal deficits, political instability",
+      "resolution": "2005 New Turkish Lira (6 zeros removed)",
+      "bills": [
+        "1_million_Lira.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "venezuela-2016-2021",
+      "country": "Venezuela",
+      "countryCode": "VE",
+      "currency": "Bolívar",
+      "currencySymbol": "Bs",
+      "periodStart": "2016",
+      "periodEnd": "2021",
+      "peakInflation": "1,000,000%+ annually",
+      "peakMonth": "2018",
+      "exchangeRatePeak": "Billions of bolívares per USD",
+      "cause": "Oil price collapse, socialist policies",
+      "resolution": "Multiple redenominations, dollarization",
+      "bills": [
+        "1_million_bolivar.png"
+      ],
+      "featured": true
+    },
+    {
+      "id": "angola-1991-1999",
+      "country": "Angola",
+      "countryCode": "AO",
+      "currency": "Kwanza",
+      "currencySymbol": "Kz",
+      "periodStart": "1991",
+      "periodEnd": "1999",
+      "peakInflation": "4,145% annually",
+      "peakMonth": "1996",
+      "exchangeRatePeak": "Millions of kwanzas per USD",
+      "cause": "Civil war, oil dependency",
+      "resolution": "Kwanza Reajustado redenomination",
+      "bills": [
+        "500_Angola.png"
+      ],
+      "featured": false
+    },
+    {
+      "id": "lebanon-2019-present",
+      "country": "Lebanon",
+      "countryCode": "LB",
+      "currency": "Pound",
+      "currencySymbol": "L£",
+      "periodStart": "2019",
+      "periodEnd": "present",
+      "peakInflation": "200%+ annually",
+      "peakMonth": "2021-2023",
+      "exchangeRatePeak": "90,000+ pounds per USD (from 1,500)",
+      "cause": "Banking crisis, political dysfunction, Beirut explosion",
+      "resolution": "Ongoing crisis",
+      "bills": [
+        "10k_Liban.png"
+      ],
+      "featured": true
+    },
+    {
+      "id": "philippines-1942-1945",
+      "country": "Philippines",
+      "countryCode": "PH",
+      "currency": "Japanese Occupation Peso",
+      "currencySymbol": "₱",
+      "periodStart": "1942",
+      "periodEnd": "1945",
+      "peakInflation": "Severe (unmeasured)",
+      "peakMonth": "1945",
+      "exchangeRatePeak": "Worthless by end of occupation",
+      "cause": "Japanese military occupation, forced currency",
+      "resolution": "Liberation, return to Philippine Peso",
+      "bills": [
+        "10_centavos_Japan_Occupation.png"
+      ],
+      "featured": false
+    }
+  ]
+}

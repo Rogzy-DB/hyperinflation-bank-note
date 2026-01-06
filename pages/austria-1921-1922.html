@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austria Hyperinflation (1921-1922) - Hyperinflation Archive</title>
+    <meta name="description" content="Explore banknotes from Austria's hyperinflation period (1921-1922). View the Krone collection with exchange rate charts and historical context.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <!-- Marked.js for Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/detail.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💵</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header detail-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                    Back to Collection
+                </a>
+                <div class="header-actions">
+                    <button id="downloadPeriodBtn" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download Bills
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="detail-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-flag">
+                    <img id="countryFlag" src="" alt="">
+                </div>
+                <div class="hero-info">
+                    <h1 id="heroTitle">Austria Hyperinflation</h1>
+                    <p class="hero-period" id="heroPeriod">1921-1922</p>
+                    <p class="hero-currency" id="heroCurrency">Krone</p>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value" id="statPeakInflation">-</span>
+                    <span class="hero-stat-label">Peak Inflation</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value" id="statPeakMonth">-</span>
+                    <span class="hero-stat-label">Peak Month</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value" id="statExchangeRate">-</span>
+                    <span class="hero-stat-label">Exchange Rate Peak</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value" id="statBillCount">-</span>
+                    <span class="hero-stat-label">Banknotes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="detail-main">
+        <div class="container">
+            <div class="detail-grid">
+                <!-- Left Column: Bills Gallery -->
+                <section class="bills-section">
+                    <h2 class="section-title">Banknote Collection</h2>
+                    <div class="bills-gallery" id="billsGallery">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+
+                <!-- Right Column: Info & Chart -->
+                <aside class="info-section">
+                    <!-- Exchange Rate Chart -->
+                    <div class="chart-card">
+                        <h3 class="card-title">Exchange Rate Over Time</h3>
+                        <p class="chart-subtitle" id="chartSubtitle">Currency per 1 USD (logarithmic scale)</p>
+                        <div class="chart-container">
+                            <canvas id="exchangeRateChart"></canvas>
+                        </div>
+                        <p class="chart-note" id="chartNote"></p>
+                    </div>
+
+                    <!-- Historical Context -->
+                    <div class="info-card">
+                        <h3 class="card-title">Historical Context</h3>
+                        <div class="info-content" id="infoContent">
+                            <div class="info-loading">Loading historical information...</div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Facts -->
+                    <div class="facts-card">
+                        <h3 class="card-title">Quick Facts</h3>
+                        <dl class="facts-list">
+                            <div class="fact-item">
+                                <dt>Cause</dt>
+                                <dd id="factCause">-</dd>
+                            </div>
+                            <div class="fact-item">
+                                <dt>Resolution</dt>
+                                <dd id="factResolution">-</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m15 18-6-6 6-6"/>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+            <p class="lightbox-caption" id="lightboxCaption"></p>
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m9 18 6-6-6-6"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>Hyperinflation Archive - Educational Resource</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Back to Collection</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/detail.js"></script>
+    <script>
+        // Initialize with period ID from filename
+        const periodId = window.location.pathname.split('/').pop().replace('.html', '');
+        initDetailPage(periodId);
+    </script>
+</body>
+</html>

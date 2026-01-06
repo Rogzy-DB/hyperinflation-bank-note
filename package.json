@@ -1,0 +1,32 @@
+{
+  "name": "hyperinflation-banknote-visualizer",
+  "version": "1.0.0",
+  "description": "A web-based visualization platform for historical hyperinflation banknotes",
+  "main": "index.html",
+  "scripts": {
+    "process-images": "node scripts/process-images.js",
+    "process-images:py": "python scripts/process-images.py",
+    "serve": "npx serve .",
+    "build:zips": "node scripts/build-downloads.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/hyperinflation-bank-note.git"
+  },
+  "keywords": [
+    "hyperinflation",
+    "banknotes",
+    "currency",
+    "history",
+    "visualization",
+    "economics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sharp": "^0.33.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

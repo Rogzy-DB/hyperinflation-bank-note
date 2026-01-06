@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build outputs
+dist/
+build/
+
+# Original high-res images (too large for GitHub, use Git LFS or releases)
+# assets/bills/originals/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# ZIP archives (uploaded to releases instead)
+*.zip
+*.zip.part
+
+# Windows artifacts
+nul
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
