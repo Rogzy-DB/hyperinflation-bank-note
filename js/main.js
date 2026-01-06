@@ -9,7 +9,6 @@ let filteredPeriods = [];
 
 // DOM Elements
 const elements = {
-    featuredGrid: document.getElementById('featuredGrid'),
     periodsGrid: document.getElementById('periodsGrid'),
     searchInput: document.getElementById('searchInput'),
     sortSelect: document.getElementById('sortSelect'),
@@ -33,7 +32,8 @@ async function init() {
     try {
         await loadPeriodsData();
         updateStats();
-        renderFeaturedPeriods();
+        // Sort by bill count by default
+        filteredPeriods.sort((a, b) => (b.bills?.length || 0) - (a.bills?.length || 0));
         renderAllPeriods();
         setupEventListeners();
     } catch (error) {
@@ -124,16 +124,6 @@ function createPeriodCard(period) {
     });
 
     return card;
-}
-
-// Render featured periods
-function renderFeaturedPeriods() {
-    const featured = periodsData.filter(p => p.featured);
-    elements.featuredGrid.innerHTML = '';
-
-    featured.forEach(period => {
-        elements.featuredGrid.appendChild(createPeriodCard(period));
-    });
 }
 
 // Render all periods (filtered)

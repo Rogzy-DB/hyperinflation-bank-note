@@ -276,6 +276,18 @@ a:hover {
     padding: var(--space-2xl) 0;
 }
 
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.section-header .section-title {
+    margin-bottom: 0;
+}
+
 .section-title {
     font-family: var(--font-display);
     font-size: 1.75rem;
