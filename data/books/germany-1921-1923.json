@@ -1,0 +1,32 @@
+{
+  "periodId": "germany-1921-1923",
+  "books": [
+    {
+      "id": "when-money-dies",
+      "title": "When Money Dies",
+      "author": "Adam Fergusson",
+      "year": 1975,
+      "isbn": "9781586489946",
+      "description": "The nightmare of deficit spending, devaluation, and hyperinflation in Weimar Germany.",
+      "link": "https://www.amazon.com/dp/1586489941"
+    },
+    {
+      "id": "dying-of-money",
+      "title": "Dying of Money",
+      "author": "Jens O. Parsson",
+      "year": 1974,
+      "isbn": "9781457502668",
+      "description": "Lessons of the great German and American inflations.",
+      "link": "https://www.amazon.com/dp/1468165526"
+    },
+    {
+      "id": "economics-of-inflation",
+      "title": "The Economics of Inflation",
+      "author": "Costantino Bresciani-Turroni",
+      "year": 1931,
+      "isbn": "9781610160605",
+      "description": "A comprehensive study of the German currency depreciation after World War I.",
+      "link": "https://www.amazon.com/dp/1614273189"
+    }
+  ]
+}

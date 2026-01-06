@@ -5,6 +5,7 @@
 
 let periodData = null;
 let exchangeRateData = null;
+let booksData = null;
 let currentBillIndex = 0;
 let chart = null;
 
@@ -30,7 +31,9 @@ const elements = {
     lightboxCaption: document.getElementById('lightboxCaption'),
     lightboxClose: document.getElementById('lightboxClose'),
     lightboxPrev: document.getElementById('lightboxPrev'),
-    lightboxNext: document.getElementById('lightboxNext')
+    lightboxNext: document.getElementById('lightboxNext'),
+    booksSection: document.getElementById('booksSection'),
+    booksGallery: document.getElementById('booksGallery')
 };
 
 // Flag API URL
@@ -50,6 +53,7 @@ async function initDetailPage(periodId) {
         updatePageContent();
         renderBillsGallery();
         await loadExchangeRateData(periodId);
+        await loadBooksData(periodId);
         await loadInfoContent(periodId);
         setupEventListeners();
         updateDocumentTitle();
@@ -81,6 +85,52 @@ async function loadExchangeRateData(periodId) {
         console.log('No exchange rate data available');
         elements.chartNote.textContent = 'Exchange rate data not yet available for this period.';
     }
+}
+
+// Load books data
+async function loadBooksData(periodId) {
+    try {
+        const response = await fetch(`../data/books/${periodId}.json`);
+        if (response.ok) {
+            booksData = await response.json();
+            renderBooksGallery();
+        }
+    } catch (error) {
+        console.log('No books data available for this period');
+    }
+}
+
+// Render books gallery
+function renderBooksGallery() {
+    if (!booksData || !booksData.books || booksData.books.length === 0) {
+        return;
+    }
+
+    // Show the books section
+    elements.booksSection.style.display = 'block';
+
+    elements.booksGallery.innerHTML = booksData.books.map(book => {
+        // Use Open Library Covers API with ISBN, fallback to placeholder
+        const coverUrl = book.isbn
+            ? `https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg`
+            : `../assets/books/${book.cover}`;
+        const placeholderCover = `https://placehold.co/200x280/1a1a1a/d4af37?text=${encodeURIComponent(book.title)}`;
+
+        return `
+            <a href="${book.link}" target="_blank" rel="noopener" class="book-card">
+                <img class="book-card-cover"
+                     src="${coverUrl}"
+                     alt="${book.title} cover"
+                     onerror="this.src='${placeholderCover}'">
+                <div class="book-card-info">
+                    <h4 class="book-card-title">${book.title}</h4>
+                    <p class="book-card-author">${book.author}</p>
+                    <p class="book-card-year">${book.year}</p>
+                    <p class="book-card-description">${book.description}</p>
+                </div>
+            </a>
+        `;
+    }).join('');
 }
 
 // Load markdown info content
