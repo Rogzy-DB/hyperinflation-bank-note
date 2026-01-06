@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(unzip:*)",
+      "Bash(node scripts/generate-pages.js:*)",
+      "Bash(pip show:*)",
+      "Bash(python scripts/process-images.py:*)",
+      "Bash(npx serve:*)",
+      "Bash(timeout:*)",
+      "Bash(ping:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd hyperinflation banknote visualization platform MVP\n\nFeatures:\n- 19 hyperinflation periods with 44 banknote images\n- Responsive dark theme with card grid index page\n- Detail pages with bills gallery, lightbox, and Chart.js charts\n- Exchange rate data for Germany 1921-1923 with logarithmic scale\n- Markdown content system for historical information\n- Image processing scripts \\(Python\\) for thumbnails and web versions\n- Page generation scripts \\(Node.js\\) for detail pages\n- Comprehensive documentation \\(DATA_GUIDE, CHEATSHEET, ROADMAP\\)\n\nTech stack: Pure HTML5, CSS3, Vanilla JS, Chart.js, Marked.js\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git config:*)",
+      "Bash(dir:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
