@@ -1,0 +1,92 @@
+{
+ "quotes": {
+  "hayek": {
+   "text": "With the exception only of the 200-year period of the gold standard, practically all governments of history have used their exclusive power to issue money in order to defraud and plunder the people.",
+   "title": "Choice in Currency: A Way to Stop Inflation",
+   "where": "IEA Occasional Paper 48, 1976, section III",
+   "url": "https://iea.org.uk/wp-content/uploads/2016/07/upldbook409.pdf"
+  },
+  "voltaire": {
+   "text": "Paper money eventually returns to its intrinsic value: zero.",
+   "credit": "Attributed to Voltaire. No one has found it in his works; it is quoted for a reason."
+  }
+ },
+ "years": "3rd century → 1865",
+ "intro": "Hanke and Krus's table starts in 1795 because a hyperinflation is measured in monthly prices, and before that no one kept them. Money died long before anyone could count the months. These are not full cases yet, only the record.",
+ "episodes": [
+  {
+   "name": "France: assignats and mandats",
+   "years": "1795–1796",
+   "text": "The Revolution's paper, first backed by confiscated church land, was printed to 45.5 billion francs. In mid-August 1796 prices rose 304% in a month and doubled every 15 days: the only hyperinflation in the Hanke–Krus table before 1920.",
+   "sources": [
+    [
+     "Hanke & Krus 2012, row 14",
+     "https://upload.wikimedia.org/wikipedia/commons/8/88/The_Hanke_Krus_Hyperinflation_Table.pdf"
+    ],
+    [
+     "Wikipedia, Assignat",
+     "https://en.wikipedia.org/wiki/Assignat"
+    ]
+   ]
+  },
+  {
+   "name": "Confederate dollar",
+   "years": "1861–1865",
+   "text": "Notes in circulation went from $1 million in July 1861 to about $700 million by autumn 1863. A paper dollar worth 90 cents in gold at the end of 1861 was worth 6 cents during 1863. Savers lost 90% or more.",
+   "sources": [
+    [
+     "Wikipedia, citing Schwab 1899",
+     "https://en.wikipedia.org/wiki/Economy_of_the_Confederate_States_of_America"
+    ]
+   ]
+  },
+  {
+   "name": "Continental dollar",
+   "years": "1775–1781",
+   "text": "Congress paid for the Revolution with $200 million of paper. By 1780 a Continental was worth 1/40 of its face value; by May 1781 it no longer circulated. Hence “not worth a Continental”.",
+   "sources": [
+    [
+     "Wikipedia, citing Grubb 2008 and Newman 1990",
+     "https://en.wikipedia.org/wiki/Early_American_currency#Continental_currency"
+    ]
+   ]
+  },
+  {
+   "name": "Kipper und Wipper",
+   "years": "1619–1623",
+   "text": "At the start of the Thirty Years' War, German mints clipped good coins and recast them with lead, copper and tin, and spent fake copies of their neighbours' coins abroad. The famine of 1620–1623 is partly blamed on it.",
+   "sources": [
+    [
+     "Wikipedia, citing Collet & Krämer 2017",
+     "https://en.wikipedia.org/wiki/Kipper_und_Wipper"
+    ]
+   ]
+  },
+  {
+   "name": "Paper money in Yuan and Ming China",
+   "years": "14th–16th c.",
+   "text": "The first empire to run on paper also printed it to ruin. The Yuan's notes ended worthless; the Ming note of 1375 had no reserves and no limit on printing, and was abolished after it collapsed.",
+   "sources": [
+    [
+     "Wikipedia, citing Bernholz 1997",
+     "https://en.wikipedia.org/wiki/Great_Ming_Treasure_Note"
+    ]
+   ]
+  },
+  {
+   "name": "Rome's silver coin",
+   "years": "215–301",
+   "text": "Caracalla's antoninianus was a double denarius holding 1.5 denarii of silver. Each emperor cut it further, to about 5% silver under Aurelian. In 301 Diocletian answered with price controls and the death penalty; by 305 the edict was ignored.",
+   "sources": [
+    [
+     "Wikipedia, Antoninianus",
+     "https://en.wikipedia.org/wiki/Antoninianus"
+    ],
+    [
+     "Wikipedia, Edict on Maximum Prices",
+     "https://en.wikipedia.org/wiki/Edict_on_Maximum_Prices"
+    ]
+   ]
+  }
+ ]
+}

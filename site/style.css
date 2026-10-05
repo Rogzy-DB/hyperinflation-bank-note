@@ -36,7 +36,7 @@ svg.timeline { width: 100%; min-width: 760px; height: auto; display: block; }
 svg.timeline a:hover rect { stroke: var(--ink); stroke-opacity: 1; stroke-width: 2; }
 .legend { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 6px 0 40px; }
 .legend i { display: inline-block; width: 34px; height: 12px; border: 1px solid rgba(0, 0, 0, .2); }
-.era { padding: 36px 0; border-top: 3px solid var(--ink); }
+.era { scroll-margin-top: 8px; padding: 36px 0; border-top: 3px solid var(--ink); }
 .era > header { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
 .era h2 { font-size: 34px; text-transform: uppercase; }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
@@ -181,3 +181,11 @@ body:has(.modal:target) { overflow: hidden; }
 .filter label { cursor: pointer; padding: 8px 0; }
 .lib:has(#only-free:checked) .book:not(.has-free) { display: none; }
 .lib:has(#only-free:checked) .era:not(:has(.book.has-free)) { display: none; }
+.quote { margin: 26px 0 0; max-width: 40em; border-left: 3px solid var(--acc); padding: 2px 0 2px 18px; }
+.quote blockquote { margin: 0; font-size: 19px; font-style: italic; color: #2c2b28; }
+.quote figcaption { margin-top: 8px; }
+.quote.end { margin: 44px 0 8px; }
+.older { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; }
+.older h3 { font-size: 20px; text-transform: uppercase; margin: 4px 0 6px; }
+.older p { margin: 0 0 6px; }
+.before > .dek { max-width: 44em; margin: 0; }

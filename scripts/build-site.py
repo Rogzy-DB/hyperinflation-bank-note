@@ -32,6 +32,9 @@ ERAS = json.loads((ROOT / "data/eras.json").read_text())["eras"]
 BY_ID = {p["id"]: p for p in PERIODS}
 CHRONO = sorted(PERIODS, key=lambda p: (int(p["periodStart"]), int(p["periodEnd"])))
 HYPER = [p for p in PERIODS if p.get("kind") != "chronic"]
+# the home page's quotes and its « And even before » section (pre-1921 collapses, not full cases yet): every line sourced
+BEFORE = json.loads((ROOT / "data/before.json").read_text())
+HAYEK, VOLTAIRE = BEFORE["quotes"]["hayek"], BEFORE["quotes"]["voltaire"]
 NOTE_COUNT = sum(len(p["bills"]) for p in PERIODS)
 ERA_OF = {i: e for e in ERAS for i in e["ids"]}
 LIBRARY = json.loads((ROOT / "data/library.json").read_text()) if (ROOT / "data/library.json").exists() else {"shelves": []}
@@ -362,6 +365,11 @@ def shell(rel, title, desc, path, body, og_image="assets/bills/web/100_Trillion_
 
 
 # ------------------------------------------------------------------ home
+def era_slug(era):
+    """the era's anchor on the home page: the case breadcrumb links back to it"""
+    return re.sub(r"[^a-z0-9]+", "-", era["name"].lower().replace("'", "")).strip("-")
+
+
 def home():
     eras = []
     for era in ERAS:
@@ -375,18 +383,31 @@ def home():
 <div class="tx"><h3>{E(p['country'])}</h3><span class="mono">{p['periodStart']}–{p['periodEnd']} · {E(p['currency'])}</span>
 <span class="pk">{E(p['peakInflation'])}</span><span class="mono">{('worst month · ' + E(p['peakMonth'])) if not ch else 'contrast case: never 50% in a month'}</span></div></a>""")
         n = len(era["ids"])
-        eras.append(f'<section class="era" aria-labelledby="era-{len(eras)}"><header><h2 id="era-{len(eras)}">{E(era["name"])}</h2>'
+        eras.append(f'<section class="era" id="{era_slug(era)}" aria-labelledby="era-{len(eras)}"><header><h2 id="era-{len(eras)}">{E(era["name"])}</h2>'
                     f'<span class="mono">{era["years"]} · {n} case{"s" if n > 1 else ""}</span></header><div class="cards" data-align="left">{"".join(cards)}</div></section>')
     body = f"""<div class="wrap">
 <section class="hero">
  <p class="mono">1921 → 2023 · {len(HYPER)} hyperinflations · {NOTE_COUNT} banknotes · every figure sourced</p>
- <h1>A century of money <em>dying</em></h1>
- <p class="dek">Every major hyperinflation since 1921 on one line. Each bar is a crisis, its colour how bad the worst month got.
- Open one for the full case: the context, what happened, life during it, how it ended, the banknotes and the data.</p>
+ <h1>A century of <em>dying</em> money</h1>
+ <p class="dek">Currencies die fast, and they die often. Steve Hanke counts 62 hyperinflations in recorded history, all but one
+ since 1920, most of them within living memory. Almost every one began the same way: a state spent more than it could tax or
+ borrow, and its central bank paid the difference with new money. Savings vanished, wages were spent the hour they were paid,
+ and in the end a new currency had to be born. Here are {len(HYPER)} of them, case by case: the context, what happened, life
+ during it, how it ended, the banknotes and the data.</p>
+ <figure class="quote"><blockquote>{HAYEK["text"]}</blockquote>
+ <figcaption class="mono">F. A. Hayek, <a href="{HAYEK["url"]}"><cite>{HAYEK["title"]}</cite></a>, {HAYEK["where"]}</figcaption></figure>
 </section>
 <div class="tl" id="timeline">{timeline_svg()}</div>
 <div class="legend mono"><span>Worst month:</span>{''.join(f'<i style="background:{c}"></i>' for c in RAMP[1:])}<span>50% → 10¹⁶ % in one month</span><span>· dashed: never 50% (contrast)</span></div>
 <div id="cases">{''.join(eras)}</div>
+<figure class="quote end"><blockquote>{E(VOLTAIRE["text"])}</blockquote>
+ <figcaption class="mono">{VOLTAIRE["credit"]}</figcaption></figure>
+<section class="era before" id="before" aria-labelledby="before-h"><header><h2 id="before-h">And even before</h2>
+<span class="mono">{BEFORE["years"]} · it was always the case</span></header>
+<p class="dek">{BEFORE["intro"]}</p>
+<ol class="older">{''.join(f'<li><span class="mono">{E(b["years"])}</span><h3>{E(b["name"])}</h3><p>{b["text"]}</p>'
+  f'<p class="mono src">Source: {" · ".join(f'<a href="{E(u)}">{E(t)}</a>' for t, u in b["sources"])}</p></li>' for b in BEFORE["episodes"])}</ol>
+</section>
 <section class="method" aria-label="How to read this site">
  <div><h3>What counts</h3><p>A hyperinflation starts in the month prices rise 50% or more (Cagan 1956). The worst month comes from Hanke &amp; Krus (2012) unless a case says otherwise. Turkey is a contrast case.</p></div>
  <div><h3>Every figure sourced</h3><p>Each case is written from a knowledge base where every number carries its source. What could not be verified is left out, not softened.</p></div>
@@ -396,7 +417,7 @@ def home():
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": "Hyperinflation Archive", "url": SITE + "/",
           "description": f"{len(HYPER)} hyperinflations since 1921 as sourced case studies, with {NOTE_COUNT} banknotes and data.",
           "author": {"@type": "Person", "name": "Rogzy", "url": "https://rogzy.org/"}, "license": "https://opensource.org/license/mit"}
-    return shell("", "Hyperinflation Archive — a century of money dying",
+    return shell("", "Hyperinflation Archive — a century of dying money",
                  f"Every major hyperinflation since 1921 as a sourced case study: context, history, banknotes and data. {len(HYPER)} cases, {NOTE_COUNT} banknotes.",
                  "", body, jsonld=ld)
 
@@ -537,7 +558,7 @@ month by month. The figures that matter are in the text and the key figures belo
 
     kind = "Chronic inflation" if chronic else "Hyperinflation"
     body = f"""<div class="wrap chead">
- <p class="mono"><a href="../#cases">Cases</a> / {E(era['name'])} / {E(p['country'])}</p>
+ <p class="mono"><a href="../#cases">Cases</a> / <a href="../#{era_slug(era)}">{E(era['name'])}</a> / {E(p['country'])}</p>
  <h1>{E(p['country'])}<br>{p['periodStart']}–{p['periodEnd']}</h1>
  <p class="dek">{inline(dek)}</p>
  {'<span class="badge">Contrast case: never 50% in a month, so not a hyperinflation</span>' if chronic else ''}
