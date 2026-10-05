@@ -1,0 +1,67 @@
+{
+  "eras": [
+    {
+      "name": "After the Great War",
+      "years": "1921–1924",
+      "ids": [
+        "austria-1921-1922",
+        "germany-1921-1923",
+        "soviet-russia-1921-1924"
+      ]
+    },
+    {
+      "name": "World War II",
+      "years": "1941–1946",
+      "ids": [
+        "greece-1941-1944",
+        "philippines-1942-1945",
+        "hungary-1945-1946"
+      ]
+    },
+    {
+      "name": "Latin America's debt crisis",
+      "years": "1984–1994",
+      "ids": [
+        "bolivia-1984-1985",
+        "brazil-1986-1994",
+        "nicaragua-1987-1990",
+        "peru-1988-1990",
+        "argentina-1989-1990"
+      ]
+    },
+    {
+      "name": "The end of communism",
+      "years": "1989–1994",
+      "ids": [
+        "poland-1989-1990",
+        "russia-1992-1994",
+        "yugoslavia-1992-1994",
+        "georgia-1993-1994"
+      ]
+    },
+    {
+      "name": "Wars in Africa",
+      "years": "1991–1999",
+      "ids": [
+        "zaire-1991-1994",
+        "angola-1991-1999"
+      ]
+    },
+    {
+      "name": "The 21st century",
+      "years": "2007–2023",
+      "ids": [
+        "zimbabwe-2007-2009",
+        "venezuela-2016-2021",
+        "lebanon-2019-2023"
+      ]
+    },
+    {
+      "name": "Contrast case",
+      "years": "1990–2005",
+      "ids": [
+        "turkey-1990-2005"
+      ]
+    }
+  ]
+}

@@ -42,7 +42,9 @@
         "100k_mark.png": "100,000 marks, emergency money (Notgeld), Stollberg (1 Sep 1923)",
         "10k_Mark.png": "100,000 marks (25 Jul 1923)",
         "1000_mark.png": "1,000 marks (15 Sep 1922)"
-      }
+      },
+      "hkEpisode": "Aug 1922 – Dec 1923",
+      "doubling": "3.70 days"
     },
     {
       "id": "austria-1921-1922",
@@ -66,7 +68,9 @@
       "billLabels": {
         "10000_Kronen.png": "10,000 kronen (1918), overprinted \"Deutschösterreich\"",
         "1000_Kronen.png": "1,000 kronen (1902), overprinted \"Deutschösterreich\""
-      }
+      },
+      "hkEpisode": "Oct 1921 – Sep 1922",
+      "doubling": "25.5 days"
     },
     {
       "id": "soviet-russia-1921-1924",
@@ -89,7 +93,9 @@
       "hasExchangeRates": false,
       "billLabels": {
         "50k_Rouble.png": "50,000 rubles, RSFSR settlement note (1921)"
-      }
+      },
+      "hkEpisode": "Jan 1922 – Feb 1924",
+      "doubling": null
     },
     {
       "id": "hungary-1945-1946",
@@ -117,7 +123,9 @@
         "F2-5 1_million_B-Pengo.png": "1 million b.-pengő = 10¹⁸ pengő (3 Jun 1946)",
         "1_millard_MilPengo.png": "1 billion milpengő = 10¹⁵ pengő (3 Jun 1946)",
         "100_millions_MilPengo.png": "100 million milpengő = 10¹⁴ pengő (3 Jun 1946)"
-      }
+      },
+      "hkEpisode": "Aug 1945 – Jul 1946",
+      "doubling": "15 hours"
     },
     {
       "id": "zimbabwe-2007-2009",
@@ -155,7 +163,9 @@
         "F2-6 2_ZWD.png": "2 dollars (Salisbury 1980)",
         "F2-10 1_ZWR.png": "1 dollar (Harare 2007)",
         "F2-8 50_cents_ZWN.png": "50 cents, bearer cheque (1 Aug 2006)"
-      }
+      },
+      "hkEpisode": "Mar 2007 – mid-Nov 2008",
+      "doubling": "24.7 hours"
     },
     {
       "id": "greece-1941-1944",
@@ -181,7 +191,9 @@
         "100_milliards_Drachma.png": "100 billion drachmas (3 Nov 1944)",
         "2000_millions_drachma.png": "2 billion drachmas (11 Oct 1944)",
         "500_millions_drachma.png": "500 million drachmas (1 Oct 1944)"
-      }
+      },
+      "hkEpisode": "May 1941 – Dec 1945",
+      "doubling": "4.27 days"
     },
     {
       "id": "yugoslavia-1992-1994",
@@ -205,7 +217,9 @@
       "billLabels": {
         "50_millards_dinar.png": "50 billion dinars (1993)",
         "5_milliard_dinar.png": "5 billion dinars (1993)"
-      }
+      },
+      "hkEpisode": "Apr 1992 – Jan 1994",
+      "doubling": "1.41 days"
     },
     {
       "id": "brazil-1986-1994",
@@ -227,7 +241,9 @@
       "currencyReform": "1 real = 2,750 cruzeiros reais",
       "billLabels": {
         "1000_Cruzados.png": "1,000 cruzados, overprinted \"1 cruzado novo\" (1989)"
-      }
+      },
+      "hkEpisode": "Dec 1989 – Mar 1990",
+      "doubling": "35.1 days"
     },
     {
       "id": "peru-1988-1990",
@@ -249,7 +265,9 @@
       "currencyReform": "1 nuevo sol = 1,000,000 intis",
       "billLabels": {
         "1_million_Intis.png": "1 million intis (5 Jan 1990)"
-      }
+      },
+      "hkEpisode": "Sep 1988 · Jul – Aug 1990",
+      "doubling": "13.1 days"
     },
     {
       "id": "argentina-1989-1990",
@@ -267,7 +285,9 @@
       "featured": false,
       "peakMonthlyPct": 197,
       "currencyReform": "1 peso = 10,000 australes",
-      "billLabels": {}
+      "billLabels": {},
+      "hkEpisode": "May 1989 – Mar 1990",
+      "doubling": "19.4 days"
     },
     {
       "id": "bolivia-1984-1985",
@@ -290,7 +310,9 @@
       "hasExchangeRates": false,
       "billLabels": {
         "500k_pesos.png": "500,000 pesos bolivianos, bank cheque (5 Jun 1984)"
-      }
+      },
+      "hkEpisode": "Apr 1984 – Sep 1985",
+      "doubling": "20.3 days"
     },
     {
       "id": "nicaragua-1987-1990",
@@ -312,7 +334,9 @@
       "currencyReform": "1 córdoba nuevo = 1,000 córdobas (1988)",
       "billLabels": {
         "200k_nicaragua.png": "200,000 córdobas, overprinted on a 1,000 córdobas of 1985"
-      }
+      },
+      "hkEpisode": "Jun 1986 – Mar 1991",
+      "doubling": "16.4 days"
     },
     {
       "id": "zaire-1991-1994",
@@ -336,7 +360,9 @@
       "billLabels": {
         "500k_Zaire.png": "500,000 nouveaux zaïres (25 Oct 1996, after the episode)",
         "100k_Zaire.png": "100,000 zaïres (4 Jan 1992)"
-      }
+      },
+      "hkEpisode": "Oct 1991 – Sep 1992 · Nov 1993 – Sep 1994",
+      "doubling": "16.8 days"
     },
     {
       "id": "russia-1992-1994",
@@ -358,7 +384,9 @@
       "currencyReform": "1 ruble = 1,000 old rubles (1998)",
       "billLabels": {
         "1000_Rouble.png": "1,000 rubles, USSR State Bank"
-      }
+      },
+      "hkEpisode": "Jan 1992",
+      "doubling": "17.0 days"
     },
     {
       "id": "poland-1989-1990",
@@ -380,7 +408,9 @@
       "currencyReform": "1 new złoty = 10,000 old (1995)",
       "billLabels": {
         "10k_Zlotych.png": "10,000 złotych (1 Dec 1988)"
-      }
+      },
+      "hkEpisode": "Oct 1989 – Jan 1990",
+      "doubling": "36.8 days"
     },
     {
       "id": "georgia-1993-1994",
@@ -402,7 +432,9 @@
       "currencyReform": "1 lari = 1,000,000 kuponi",
       "billLabels": {
         "1_million_georgia.png": "1 million kuponi (1994)"
-      }
+      },
+      "hkEpisode": "Sep 1993 – Sep 1994",
+      "doubling": "18.6 days"
     },
     {
       "id": "turkey-1990-2005",
@@ -425,7 +457,9 @@
       "kind": "chronic",
       "billLabels": {
         "1_million_Lira.png": "1 million Turkish lira"
-      }
+      },
+      "hkEpisode": null,
+      "doubling": null
     },
     {
       "id": "venezuela-2016-2021",
@@ -447,7 +481,9 @@
       "currencyReform": "14 zeros removed (2008, 2018, 2021)",
       "billLabels": {
         "1_million_bolivar.png": "1 million bolívares (3 Sep 2020)"
-      }
+      },
+      "hkEpisode": "Nov 2016 – early 2022 (BCV)",
+      "doubling": null
     },
     {
       "id": "angola-1991-1999",
@@ -470,7 +506,9 @@
       "billLabels": {
         "500_Angola.png": "500,000 kwanzas (4 Feb 1991)"
       },
-      "hasExchangeRates": false
+      "hasExchangeRates": false,
+      "hkEpisode": "Dec 1994 – Jan 1997",
+      "doubling": "34.5 days"
     },
     {
       "id": "lebanon-2019-2023",
@@ -492,7 +530,9 @@
       "currencyReform": "None — the pound still runs",
       "billLabels": {
         "10k_Liban.png": "10,000 Lebanese pounds (2021)"
-      }
+      },
+      "hkEpisode": "Jul 2020 (implied, Hanke)",
+      "doubling": null
     },
     {
       "id": "philippines-1942-1945",
@@ -515,7 +555,9 @@
       "billLabels": {
         "10_centavos_Japan_Occupation.png": "10 centavos, Japanese occupation (1942)"
       },
-      "hasExchangeRates": false
+      "hasExchangeRates": false,
+      "hkEpisode": "Jan – Dec 1944",
+      "doubling": "44.9 days"
     }
   ]
 }
