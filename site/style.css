@@ -173,3 +173,11 @@ body:has(.modal:target) { overflow: hidden; }
   .modal .panel { grid-template-columns: 1fr; max-height: 100vh; padding: 22px 18px; }
   .modal .cover { width: 130px; }
 }
+
+/* free-ebook tag + filter (pure CSS: the checkbox hides the rest, and shelves left empty) */
+.tag-free { display: inline-block; margin-left: 8px; padding: 1px 6px; font-size: 12px; letter-spacing: .03em; color: var(--bg); background: var(--acc); vertical-align: 1px; }
+.filter { display: flex; justify-content: flex-end; align-items: center; gap: 6px; margin: 0 0 6px; }
+.filter input { width: 18px; height: 18px; accent-color: var(--acc); margin: 0; }
+.filter label { cursor: pointer; padding: 8px 0; }
+.lib:has(#only-free:checked) .book:not(.has-free) { display: none; }
+.lib:has(#only-free:checked) .era:not(:has(.book.has-free)) { display: none; }

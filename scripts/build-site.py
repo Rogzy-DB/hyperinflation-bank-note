@@ -603,7 +603,8 @@ def book_card(b, rel):
     head = d if len(d) <= 190 else d[:190].rsplit(" ", 1)[0].rstrip(",;:") + "…"
     cover = (f'<img class="cover" src="{rel}{E(b["cover"])}" alt="" loading="lazy" width="110" height="165">'
              if b.get("cover") else '<span class="cover"></span>')
-    return (f'<a class="book" href="#book-{b["id"]}" aria-haspopup="dialog">{cover}<div><h3>{E(b["title"])}</h3><p class="mono">{E(meta)}</p>'
+    tag = '<span class="tag-free">free ebook</span>' if b.get("free") else ""
+    return (f'<a class="book{" has-free" if b.get("free") else ""}" href="#book-{b["id"]}" aria-haspopup="dialog">{cover}<div><h3>{E(b["title"])}</h3><p class="mono">{E(meta)}{tag}</p>'
             + (f"<p>{E(head)}</p>" if head else "") + '<span class="open">Read more</span></div></a>')
 
 
@@ -644,7 +645,9 @@ def library():
                       for i, s in enumerate(LIBRARY["shelves"]))
     body = f"""<div class="wrap chead"><p class="mono"><a href="../">Home</a> / Library</p><h1>The<br>Library</h1>
 <p class="dek">The books to go further: hyperinflations told by those who studied them, what money is and what breaks it, and the way out.</p></div>
-<div class="wrap">{PLANB_THANKS}{shelves}<p class="mono">{PLANB_CREDIT}</p></div>
+<div class="wrap lib">{PLANB_THANKS}
+<p class="filter mono"><input type="checkbox" id="only-free"><label for="only-free">Free ebook only ({sum(1 for b in LIB_BOOKS if b.get("free"))})</label></p>
+{shelves}<p class="mono">{PLANB_CREDIT}</p></div>
 {"".join(book_modal(b, "../") for b in LIB_BOOKS)}"""
     return shell("../", "Library — Hyperinflation Archive",
                  "Books on hyperinflation, money and the way out, from Plan B Academy's library.", "library/", body, script=MODAL_JS)
