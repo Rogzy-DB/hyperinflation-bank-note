@@ -141,6 +141,40 @@
      "url": "https://planb.academy/en/resources/books/the-mandibles-96071451-6f36-44ec-b49c-f2f15f00da9c",
      "cases": [],
      "cover": "assets/library/the-mandibles.webp"
+    },
+    {
+     "id": "hard-boiled-egg-index",
+     "title": "Hard-Boiled Egg Index: Surviving Zimbabwe's Hyperinflation",
+     "author": "Kudzai Joseph Gumunyu",
+     "year": 2019,
+     "level": "beginner",
+     "tags": [
+      "investment",
+      "market-trends",
+      "deep-dive"
+     ],
+     "description": "A Zimbabwean's first-hand account of living through the 2007–2009 hyperinflation.",
+     "url": "https://planb.academy/en/resources/books/hard-boiled-egg-index-9cfe6667-3489-47bf-b64d-c01ad6e200e3",
+     "cases": [
+      "zimbabwe-2007-2009"
+     ],
+     "cover": "assets/library/hard-boiled-egg-index.webp"
+    },
+    {
+     "id": "argentarius",
+     "title": "Argentarius: Letters of a Bank Director to His Son",
+     "author": "Alfred Lansburgh",
+     "year": 1933,
+     "level": "advanced",
+     "tags": [
+      "finance",
+      "historical",
+      "good-practice"
+     ],
+     "description": "Argentarius; Letters of a Bank Director to his Son is a book written by Alfred Lansburgh in 1933. It is a collection of letters that the author wrote to his son, discussing various topics related to money, banking, and finance. The book provides insights into the workings of the banking industry and the financial system, and offers practical advice on how to manage money and investments. The author emphasizes the importance of ethical behavior and personal responsibility in financial matters, and provides a historical perspective on the development of money and banking. The book is considered a classic in the field of finance and economics, and is still relevant today.",
+     "url": "https://planb.academy/en/resources/books/argentarius-c0e4b271-7a5a-480f-8082-2b110de72b75",
+     "cases": [],
+     "cover": "assets/library/argentarius.webp"
     }
    ]
   },
@@ -321,6 +355,54 @@
      "url": "https://planb.academy/en/resources/books/on-the-origins-of-money-532e2c78-9846-4882-b4be-e44c20f3146a",
      "cases": [],
      "cover": "assets/library/on-the-origins-of-money.webp"
+    },
+    {
+     "id": "traictie-premiere-invention-monnoies",
+     "title": "Traictié de la première invention des monnoies",
+     "author": "Nicolas Oresme",
+     "year": 1360,
+     "level": "intermediate",
+     "tags": [
+      "economics",
+      "historical",
+      "monetary-theory"
+     ],
+     "description": "Written around 1360 by the Bishop of Lisieux, Nicolas Oresme's treatise on the origin of money is one of the earliest works of monetary theory in the Western tradition. Oresme argues that money belongs to the community that uses it, not to the sovereign, and that rulers who debase the currency are committing a form of theft against their subjects.",
+     "url": "https://planb.academy/en/resources/books/traictie-premiere-invention-monnoies-0d91d52c-ed04-4cdd-baa6-590b3544d40a",
+     "cases": [],
+     "cover": "assets/library/traictie-premiere-invention-monnoies.webp"
+    },
+    {
+     "id": "human-action",
+     "title": "Human Action",
+     "author": "Ludwig von Mises",
+     "year": 1949,
+     "level": "advanced",
+     "tags": [
+      "deep-dive",
+      "finance",
+      "market-trends"
+     ],
+     "description": "In \"Human Action\", renowned Austrian economist Ludwig von Mises profoundly explores the philosophy behind economic activity, emphasizing the central role of human choice and its subsequent consequences. First published in 1949, this 85-chapter magnum opus has become an enduring touchstone in the field of economic thought, cherished for its comprehensive and penetrating analysis of economic phenomena. Mises employs the concept of praxeology, the science of human action, as a foundational premise in dissecting and understanding economic activity. His holistic perspective encapsulates not only financial transactions or the exchange of goods and services, but also the full gamut of decisions and actions undertaken by individuals that drive economic phenomena. The book unravels complex topics such as the nature and causes of the business cycle, the market as an economic system, the role of knowledge and uncertainty in economic decision-making, and the vital role of entrepreneurship. Moreover, Mises thoughtfully examines the consequences of governmental interference in the economy, ultimately endorsing the laissez-faire economic system as the most viable path to individual freedom and prosperity. \"Human Action\" is not merely an economics book; it's an intellectual voyage into the depths of human decision-making and its intricate relationship with societal systems. It's a must-read for economists, philosophers, and anyone interested in gaining a deeper understanding of the mechanisms underlying the economic world around us. Its insightful observations continue to resonate, making it a classic that stands the test of time.",
+     "url": "https://planb.academy/en/resources/books/human-action-bbca4b97-baac-4d75-87ab-630f9f8fad4f",
+     "cases": [],
+     "cover": "assets/library/human-action.webp"
+    },
+    {
+     "id": "du-credit-et-des-banques",
+     "title": "Du crédit et des banques",
+     "author": "Charles Coquelin",
+     "year": 1848,
+     "level": "advanced",
+     "tags": [
+      "economics",
+      "french-liberal-tradition",
+      "banking"
+     ],
+     "description": "Charles Coquelin's treatise on credit and banking (1848) is one of the strongest arguments for free banking in the French liberal tradition. Coquelin demonstrates that government monopoly over money and credit leads to instability, while competition among banks produces sounder currencies and more efficient allocation of capital.",
+     "url": "https://planb.academy/en/resources/books/du-credit-et-des-banques-4a34b98d-feda-4228-bf48-e14df159cf11",
+     "cases": [],
+     "cover": "assets/library/du-credit-et-des-banques.webp"
     }
    ]
   },
@@ -453,6 +535,22 @@
      "url": "https://planb.academy/en/resources/books/check-your-financial-privilege-b35ca3ae-2df6-423e-87a3-614ee06a0e6d",
      "cases": [],
      "cover": "assets/library/check-your-financial-privilege.webp"
+    },
+    {
+     "id": "end-the-fed",
+     "title": "End the Fed",
+     "author": "Ron Paul",
+     "year": 2009,
+     "level": "intermediate",
+     "tags": [
+      "finance",
+      "historical",
+      "market-trends"
+     ],
+     "description": "In \"End the Fed,\" Ron Paul challenges the role of the Federal Reserve and argues that it is both corrupt and unconstitutional. Drawing on American history, economics, and his own political experiences, Paul contends that the Fed's inflationary practices pose a significant threat to the economy, potentially leading to an inflationary depression. Contrary to popular belief, Paul asserts that the Fed works against the interests of the people. Urgently appealing to citizens and officials alike, he offers insights into where the country went wrong and proposes solutions to fix America's economic policy for the benefit of future generations.",
+     "url": "https://planb.academy/en/resources/books/end-the-fed-10beb228-17b5-47b0-8667-255b5916e7ef",
+     "cases": [],
+     "cover": "assets/library/end-the-fed.webp"
     }
    ]
   }

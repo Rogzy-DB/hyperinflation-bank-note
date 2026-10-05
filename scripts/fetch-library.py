@@ -21,19 +21,21 @@ SHELVES = [
     ("Hyperinflation and monetary history", [
         "when-money-dies", "fiat-money-inflation-in-france", "monetary-regimes-and-inflation-history-economic-and-political-relationships-second-edition",
         "this-time-is-different-eight-centuries-of-financial-folly", "lord-of-finance", "big-debt-crisis", "debt-the-first-5000-years",
-        "the-mandibles"]),
+        "the-mandibles", "hard-boiled-egg-index", "argentarius"]),
     ("What money is, and what breaks it", [
         "the-theory-of-money-and-credit", "what-has-government-done-to-our-money", "the-mystery-of-banking", "the-ethics-of-money-production",
         "money-sound-and-unsound", "honest-money", "how-is-fiat-money-possible", "the-creature-from-jekyll-island", "economics-in-one-lesson",
-        "shelling-out-origins-money", "on-the-origins-of-money"]),
+        "shelling-out-origins-money", "on-the-origins-of-money", "traictie-premiere-invention-monnoies", "human-action",
+        "du-credit-et-des-banques"]),
     ("Fiat, and the way out", [
         "broken-money", "the-fiat-standard", "the-bitcoin-standard", "layered-money", "the-price-of-tomorrow", "gradually-then-suddenly",
-        "resistance-money", "check-your-financial-privilege"]),
+        "resistance-money", "check-your-financial-privilege", "end-the-fed"]),
 ]
 # which cases a book speaks to directly (shown on the case page)
 CASES = {
     "when-money-dies": ["germany-1921-1923", "austria-1921-1922"],
     "lord-of-finance": ["germany-1921-1923"],
+    "hard-boiled-egg-index": ["zimbabwe-2007-2009"],
     "monetary-regimes-and-inflation-history-economic-and-political-relationships-second-edition": ["germany-1921-1923", "hungary-1945-1946", "greece-1941-1944"],
 }
 
@@ -48,6 +50,10 @@ FIXES = {
     "the-mandibles": {"title": "The Mandibles: A Family, 2029–2047"},
     "debt-the-first-5000-years": {"title": "Debt: The First 5,000 Years"},
     "how-is-fiat-money-possible": {"title": "How Is Fiat Money Possible?"},
+    # years: the upstream file gives the edition, not the first publication (checked 2026-10-05)
+    "hard-boiled-egg-index": {"year": 2019, "title": "Hard-Boiled Egg Index: Surviving Zimbabwe's Hyperinflation",
+                              "description": "A Zimbabwean's first-hand account of living through the 2007–2009 hyperinflation."},
+    "argentarius": {"year": 1933, "title": "Argentarius: Letters of a Bank Director to His Son"},
     "big-debt-crisis": {"title": "Big Debt Crises"},
     "the-price-of-tomorrow": {"title": "The Price of Tomorrow: Why Deflation Is the Key to an Abundant Future"},
 }
