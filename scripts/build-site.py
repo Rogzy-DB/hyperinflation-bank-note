@@ -522,7 +522,8 @@ month by month. The figures that matter are in the text and the key figures belo
 
     lib = [b for b in LIB_BOOKS if pid in b.get("cases", [])]
     reading = (f'<section class="s" aria-labelledby="h-read"><h2 id="h-read">Further reading</h2><div class="books" data-align="left">'
-               + "".join(book_card(b, "../") for b in lib) + f'</div><p class="mono">More in the <a href="../library/">Library</a>. {PLANB_CREDIT}</p></section>') if lib else ""
+               + "".join(book_card(b, "../") for b in lib) + f'</div><p class="mono">More in the <a href="../library/">Library</a>. {PLANB_CREDIT}</p></section>'
+               + "".join(book_modal(b, "../") for b in lib)) if lib else ""
     bk = books(pid)
     books_html = ""
     if bk:
@@ -566,7 +567,8 @@ month by month. The figures that matter are in the text and the key figures belo
           "license": "https://opensource.org/license/mit", "isPartOf": {"@type": "WebSite", "name": "Hyperinflation Archive", "url": SITE + "/"},
           "about": {"@type": "Event", "name": f"{kind} in {p['country']}", "startDate": p["periodStart"], "endDate": p["periodEnd"]}}
     og = f"assets/bills/web/{p['bills'][0].replace('.png', '.jpg')}" if p["bills"] else "assets/bills/web/100_Trillion_Zimbabwe.jpg"
-    return shell("../", f"{title_plain} — {kind} — Hyperinflation Archive", dek, f"{pid}/", body, og_image=og, jsonld=ld, script=script)
+    return shell("../", f"{title_plain} — {kind} — Hyperinflation Archive", dek, f"{pid}/", body, og_image=og, jsonld=ld,
+                 script=script + (MODAL_JS if lib else ""))
 
 
 def case_data(p):
@@ -588,16 +590,51 @@ def case_data(p):
 
 
 # ------------------------------------------------------------------ library
+def amazon(b):
+    from urllib.parse import quote_plus
+    return "https://www.amazon.com/s?k=" + quote_plus(f"{b['title']} {b.get('author') or ''}".strip()) + "&i=stripbooks"
+
+
 def book_card(b, rel):
-    """no outbound link per book until Plan B has a full summary for each (Rogzy, 2026-10-05)."""
+    """the card opens its pop-up (#book-<id>, pure CSS :target, so it works without JS); no per-book outbound
+    link to Plan B until it has a full summary for each (Rogzy, 2026-10-05)."""
     meta = " · ".join(str(x) for x in (b.get("author"), b.get("year"), b.get("level")) if x)
-    desc = f'<p>{E(b["description"])}</p>' if b.get("description") else ""
+    d = b.get("description") or ""
+    head = d if len(d) <= 190 else d[:190].rsplit(" ", 1)[0].rstrip(",;:") + "…"
+    cover = (f'<img class="cover" src="{rel}{E(b["cover"])}" alt="" loading="lazy" width="110" height="165">'
+             if b.get("cover") else '<span class="cover"></span>')
+    return (f'<a class="book" href="#book-{b["id"]}" aria-haspopup="dialog">{cover}<div><h3>{E(b["title"])}</h3><p class="mono">{E(meta)}</p>'
+            + (f"<p>{E(head)}</p>" if head else "") + '<span class="open">Read more</span></div></a>')
+
+
+def book_modal(b, rel):
+    meta = " · ".join(str(x) for x in (b.get("author"), b.get("year"), b.get("level")) if x)
+    cover = f'<img class="cover" src="{rel}{E(b["cover"])}" alt="Cover of {E(b["title"])}" loading="lazy" width="200" height="300">' if b.get("cover") else ""
+    desc = "".join(f"<p>{E(p)}</p>" for p in re.split(r"\n{2,}", b.get("description") or "") if p.strip())
+    summary = f'<h4>Summary</h4><div class="summary">{b["summary"]}</div>' if b.get("summary") else ""
     cases = ""
     if b.get("cases"):
-        cases = '<p class="mono">Cases: ' + ", ".join(f'<a href="{rel}{c}/">{E(BY_ID[c]["country"])}</a>' for c in b["cases"] if c in BY_ID) + "</p>"
-    cover = (f'<img class="cover" src="{rel}{E(b["cover"])}" alt="Cover of {E(b["title"])}" loading="lazy" width="110" height="165">'
-             if b.get("cover") else '<span class="cover"></span>')
-    return f'<article class="book">{cover}<div><h3>{E(b["title"])}</h3><p class="mono">{E(meta)}</p>{desc}{cases}</div></article>'
+        cases = '<p class="mono">Cases on this site: ' + ", ".join(f'<a href="{rel}{c}/">{E(BY_ID[c]["country"])} {BY_ID[c]["periodStart"]}</a>' for c in b["cases"] if c in BY_ID) + "</p>"
+    btns = [f'<a class="btn" href="{E(amazon(b))}" rel="nofollow noopener">Buy on Amazon</a>']
+    if b.get("free"):
+        btns.insert(0, f'<a class="btn free" href="{E(b["free"]["url"])}" rel="noopener">Free ebook ({E(b["free"].get("format", "online"))})</a>')
+    return (f'<div class="modal" id="book-{b["id"]}" role="dialog" aria-modal="true" aria-labelledby="bt-{b["id"]}">'
+            f'<a class="backdrop" href="#_" aria-label="Close" tabindex="-1"></a><div class="panel">'
+            f'<a class="close" href="#_" aria-label="Close">×</a>{cover}<div class="body"><h3 id="bt-{b["id"]}">{E(b["title"])}</h3>'
+            f'<p class="mono">{E(meta)}</p>{desc}{summary}{cases}<div class="dl">{"".join(btns)}</div>'
+            + ('<p class="mono">Free edition: ' + E(b["free"].get("note", "")) + "</p>" if b.get("free") and b["free"].get("note") else "")
+            + "</div></div></div>")
+
+
+MODAL_JS = """<script>
+// the pop-ups work with CSS alone (#book-…); this only adds Escape and keeps the address clean on close
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && location.hash.indexOf('#book-') === 0) location.hash = '_';
+});
+window.addEventListener('hashchange', function () {
+  if (location.hash === '#_') history.replaceState(null, '', location.pathname + location.search);
+});
+</script>"""
 
 
 def library():
@@ -607,9 +644,10 @@ def library():
                       for i, s in enumerate(LIBRARY["shelves"]))
     body = f"""<div class="wrap chead"><p class="mono"><a href="../">Home</a> / Library</p><h1>The<br>Library</h1>
 <p class="dek">The books to go further: hyperinflations told by those who studied them, what money is and what breaks it, and the way out.</p></div>
-<div class="wrap">{PLANB_THANKS}{shelves}<p class="mono">{PLANB_CREDIT}</p></div>"""
+<div class="wrap">{PLANB_THANKS}{shelves}<p class="mono">{PLANB_CREDIT}</p></div>
+{"".join(book_modal(b, "../") for b in LIB_BOOKS)}"""
     return shell("../", "Library — Hyperinflation Archive",
-                 "Books on hyperinflation, money and the way out, from Plan B Academy's library.", "library/", body)
+                 "Books on hyperinflation, money and the way out, from Plan B Academy's library.", "library/", body, script=MODAL_JS)
 
 
 # ------------------------------------------------------------------ about, 404, llms.txt, sitemap

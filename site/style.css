@@ -146,9 +146,30 @@ footer.foot a { color: var(--bg); padding: 4px 0; display: inline-block; }
 .thanks { border-left: 4px solid var(--acc); background: var(--card); padding: 14px 18px; margin: 0 0 30px; max-width: 900px; font-size: 16px; }
 .thanks p { margin: 0; }
 .books { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
-.book { background: var(--card); border: 1px solid var(--rule); padding: 16px; display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: start; }
+.book { background: var(--card); border: 1px solid var(--rule); padding: 16px; display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: start; text-decoration: none; color: inherit; }
+.book:hover { border-color: var(--ink); color: inherit; }
+.book .open { display: inline-block; margin-top: 8px; padding: 6px 0; font-size: 14px; font-weight: 600; color: var(--acc); }
 .book .cover { width: 110px; height: auto; display: block; box-shadow: 0 6px 14px -8px rgba(0, 0, 0, .45); background: #ebe8e0; aspect-ratio: 2 / 3; }
 .book h3 { font-size: 21px; font-stretch: 85%; text-transform: none; line-height: 1.15; }
 .book p { font-size: 15px; margin: 8px 0 0; }
-.book p:not(.mono) { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
 @media (max-width: 420px) { .book { grid-template-columns: 84px 1fr; gap: 12px; } .book .cover { width: 84px; } .books { grid-template-columns: 1fr; } }
+
+/* book pop-up: opened by #book-<id> (:target), works without JS */
+.modal { display: none; position: fixed; inset: 0; z-index: 50; align-items: center; justify-content: center; padding: 16px; }
+.modal:target { display: flex; }
+body:has(.modal:target) { overflow: hidden; }
+.modal .backdrop { position: absolute; inset: 0; background: rgba(18, 18, 18, .72); }
+.modal .panel { position: relative; background: var(--bg); max-width: 820px; width: 100%; max-height: calc(100vh - 32px); overflow: auto;
+  display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding: 28px; border-top: 5px solid var(--acc); }
+.modal .cover { width: 200px; height: auto; box-shadow: 0 10px 24px -12px rgba(0, 0, 0, .55); }
+.modal h3 { font-size: 30px; font-stretch: 85%; text-transform: none; line-height: 1.1; padding-right: 36px; }
+.modal h4 { font-size: 18px; margin: 18px 0 4px; text-transform: uppercase; font-stretch: 80%; font-weight: 800; }
+.modal .body p { font-size: 16px; }
+.modal .close { position: absolute; top: 8px; right: 10px; font-size: 32px; line-height: 1; text-decoration: none; padding: 6px 10px; }
+.modal .btn { background: var(--ink); color: var(--bg); font-weight: 600; font-size: 15px; padding: 12px 16px; text-decoration: none; }
+.modal .btn.free { background: var(--acc); }
+@media (max-width: 640px) {
+  .modal { padding: 0; align-items: stretch; }
+  .modal .panel { grid-template-columns: 1fr; max-height: 100vh; padding: 22px 18px; }
+  .modal .cover { width: 130px; }
+}
