@@ -2,7 +2,7 @@
   "periodId": "zimbabwe-2007-2009",
   "currency": "Zimbabwe Dollar",
   "baseCurrency": "USD",
-  "unit": "ZWD per 1 USD (adjusted for redenominations)",
+  "unit": "Zimbabwe dollars per 1 USD (approximate)",
   "useLogScale": true,
   "sources": [
     "Reserve Bank of Zimbabwe",
@@ -10,19 +10,58 @@
     "Hanke & Kwok (2009)"
   ],
   "dataPoints": [
-    { "date": "2007-01", "rate": 30000 },
-    { "date": "2007-03", "rate": 120000 },
-    { "date": "2007-06", "rate": 350000 },
-    { "date": "2007-09", "rate": 750000 },
-    { "date": "2007-12", "rate": 2000000 },
-    { "date": "2008-01", "rate": 4500000 },
-    { "date": "2008-03", "rate": 25000000 },
-    { "date": "2008-05", "rate": 200000000 },
-    { "date": "2008-07", "rate": 10000000000 },
-    { "date": "2008-08", "rate": 100000000000 },
-    { "date": "2008-09", "rate": 1000000000000 },
-    { "date": "2008-10", "rate": 100000000000000 },
-    { "date": "2008-11", "rate": 2621984228000000000 }
+    {
+      "date": "2007-01",
+      "rate": 30000
+    },
+    {
+      "date": "2007-03",
+      "rate": 120000
+    },
+    {
+      "date": "2007-06",
+      "rate": 350000
+    },
+    {
+      "date": "2007-09",
+      "rate": 750000
+    },
+    {
+      "date": "2007-12",
+      "rate": 2000000
+    },
+    {
+      "date": "2008-01",
+      "rate": 4500000
+    },
+    {
+      "date": "2008-03",
+      "rate": 25000000
+    },
+    {
+      "date": "2008-05",
+      "rate": 200000000
+    },
+    {
+      "date": "2008-07",
+      "rate": 10000000000
+    },
+    {
+      "date": "2008-08",
+      "rate": 100000000000
+    },
+    {
+      "date": "2008-09",
+      "rate": 1000000000000
+    },
+    {
+      "date": "2008-10",
+      "rate": 100000000000000
+    },
+    {
+      "date": "2008-11",
+      "rate": 2621984228000000000
+    }
   ],
-  "notes": "Peak monthly inflation: 79.6 billion percent (November 2008). Three currency redenominations: Aug 2006 (3 zeros), Jul 2008 (10 zeros), Feb 2009 (12 zeros). Currency abandoned April 2009, country dollarized."
+  "notes": "Peak 79.6 billion percent in mid-November 2008, prices doubling every 24.7 hours (Hanke & Krus). Zeros removed: 3 (2006), 10 (2008), 12 (2009); the currency was abandoned in April 2009. Approximate series, kept for its shape; individual points are not sourced one by one."
 }

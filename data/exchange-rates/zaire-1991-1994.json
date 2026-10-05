@@ -2,25 +2,62 @@
   "periodId": "zaire-1991-1994",
   "currency": "Zaïre",
   "baseCurrency": "USD",
-  "unit": "Zaïres per 1 USD (adjusted for redenominations)",
+  "unit": "Zaïres per 1 USD (nouveau zaïre converted back, ×3,000,000)",
   "useLogScale": true,
   "sources": [
-    "Banque du Zaïre",
-    "IMF Working Paper - Zaïre's Hyperinflation 1990-96"
+    "Wikipedia, \"Zairean zaire\"",
+    "Banque du Zaïre"
   ],
   "dataPoints": [
-    { "date": "1990-01", "rate": 719 },
-    { "date": "1990-12", "rate": 3000 },
-    { "date": "1991-06", "rate": 8500 },
-    { "date": "1991-08", "rate": 15300 },
-    { "date": "1991-12", "rate": 55000 },
-    { "date": "1992-06", "rate": 450000 },
-    { "date": "1992-12", "rate": 1990000 },
-    { "date": "1993-03", "rate": 2529000 },
-    { "date": "1993-10", "rate": 1 },
-    { "date": "1993-12", "rate": 110 },
-    { "date": "1994-06", "rate": 2500 },
-    { "date": "1994-09", "rate": 750000 }
+    {
+      "date": "1990-01",
+      "rate": 719
+    },
+    {
+      "date": "1990-12",
+      "rate": 3000
+    },
+    {
+      "date": "1991-06",
+      "rate": 8500
+    },
+    {
+      "date": "1991-08",
+      "rate": 15300
+    },
+    {
+      "date": "1991-12",
+      "rate": 55000
+    },
+    {
+      "date": "1992-06",
+      "rate": 450000
+    },
+    {
+      "date": "1992-12",
+      "rate": 1990000
+    },
+    {
+      "date": "1993-03",
+      "rate": 2529000
+    },
+    {
+      "date": "1993-10",
+      "rate": 3000000
+    },
+    {
+      "date": "1993-12",
+      "rate": 330000000
+    },
+    {
+      "date": "1994-06",
+      "rate": 7500000000
+    },
+    {
+      "date": "1994-09",
+      "rate": 2250000000000
+    }
   ],
-  "notes": "1991-93 inflation: 3,000-4,500% annually. 1994: 9,800% officially, 90,000% by some measures. 'Nouveau zaïre' introduced Oct 1993 at 3,000,000:1 ratio. Economy dollarized by end-1993. Currency stock worth only $46M at parallel rate."
+  "notes": "Two hyperinflations: Oct 1991–Sep 1992 and Nov 1993–Sep 1994, peak 250% in November 1993 (Hanke & Krus). The nouveau zaïre (Oct 1993) was worth 3,000,000 old zaïres; later points are converted back. Rates of 1991, Dec 1992 and Mar 1993 from Wikipedia (\"Zairean zaire\"); the rest approximate.",
+  "tooltipUnit": "old zaïres/USD"
 }

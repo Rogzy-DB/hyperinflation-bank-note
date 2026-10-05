@@ -17,7 +17,8 @@ const elements = {
     heroCurrency: document.getElementById('heroCurrency'),
     statPeakInflation: document.getElementById('statPeakInflation'),
     statPeakMonth: document.getElementById('statPeakMonth'),
-    statExchangeRate: document.getElementById('statExchangeRate'),
+    statReform: document.getElementById('statReform'),
+    chartCard: document.getElementById('chartCard'),
     statBillCount: document.getElementById('statBillCount'),
     billsGallery: document.getElementById('billsGallery'),
     infoContent: document.getElementById('infoContent'),
@@ -47,7 +48,11 @@ async function initDetailPage(periodId) {
 
         updatePageContent();
         renderBillsGallery();
-        await loadExchangeRateData(periodId);
+        if (periodData.hasExchangeRates === false) {
+            elements.chartCard.hidden = true; // no sourced series for this period: no chart rather than a guess
+        } else {
+            await loadExchangeRateData(periodId);
+        }
         await loadBooksData(periodId);
         await loadInfoContent(periodId);
         setupEventListeners();
@@ -163,42 +168,46 @@ async function loadInfoContent(periodId) {
 // Update page content with period data
 function updatePageContent() {
     // Flag (src is set in the generated HTML; hide it if the flag CDN fails)
-    elements.countryFlag.onerror = () => { elements.countryFlag.style.visibility = 'hidden'; };
-    if (elements.countryFlag.complete && !elements.countryFlag.naturalWidth) elements.countryFlag.style.visibility = 'hidden';
+    if (elements.countryFlag) {
+        elements.countryFlag.onerror = () => { elements.countryFlag.style.visibility = 'hidden'; };
+        if (elements.countryFlag.complete && !elements.countryFlag.naturalWidth) elements.countryFlag.style.visibility = 'hidden';
+    }
 
     // Hero info
-    elements.heroTitle.textContent = `${periodData.country} Hyperinflation`;
-    elements.heroPeriod.textContent = `${periodData.periodStart} - ${periodData.periodEnd}`;
+    elements.heroTitle.textContent = periodData.kind === 'chronic'
+        ? `${periodData.country} Chronic Inflation`
+        : `${periodData.country} Hyperinflation`;
+    elements.heroPeriod.textContent = `${periodData.periodStart}–${periodData.periodEnd}`;
     elements.heroCurrency.textContent = periodData.currency;
 
     // Stats
     elements.statPeakInflation.textContent = periodData.peakInflation;
     elements.statPeakMonth.textContent = periodData.peakMonth;
-    elements.statExchangeRate.textContent = periodData.exchangeRatePeak;
+    elements.statReform.textContent = periodData.currencyReform;
     elements.statBillCount.textContent = periodData.bills?.length || 0;
 
     // Facts
     elements.factCause.textContent = periodData.cause;
     elements.factResolution.textContent = periodData.resolution;
 
-    // Chart subtitle
-    elements.chartSubtitle.textContent = `${periodData.currency} per 1 USD (logarithmic scale)`;
 }
 
 // Update document title
 function updateDocumentTitle() {
-    document.title = `${periodData.country} Hyperinflation (${periodData.periodStart}-${periodData.periodEnd}) - Hyperinflation Archive`;
+    const what = periodData.kind === 'chronic' ? 'Chronic Inflation' : 'Hyperinflation';
+    document.title = `${periodData.country} ${what} (${periodData.periodStart}–${periodData.periodEnd}) - Hyperinflation Archive`;
 }
 
 // Render bills gallery
 function renderBillsGallery() {
     if (!periodData.bills || periodData.bills.length === 0) {
-        elements.billsGallery.innerHTML = '<p class="no-bills">No banknotes available yet.</p>';
+        elements.billsGallery.innerHTML = '<p class="no-bills">No banknote from this period in the collection yet.</p>';
+        elements.downloadPeriodBtn.hidden = true;
         return;
     }
 
     elements.billsGallery.innerHTML = periodData.bills.map((bill, index) => {
-        const billName = formatBillName(bill);
+        const billName = billLabel(bill);
         const webPath = `../assets/bills/web/${bill.replace('.png', '.jpg')}`;
         const thumbPath = `../assets/bills/thumbnails/${bill.replace('.png', '.jpg')}`;
 
@@ -210,7 +219,6 @@ function renderBillsGallery() {
                      onerror="this.src='https://placehold.co/300x180/1a1a1a/666?text=${encodeURIComponent(billName)}'">
                 <div class="bill-card-info">
                     <p class="bill-card-name">${billName}</p>
-                    <p class="bill-card-denomination">${periodData.currency}</p>
                 </div>
             </div>
         `;
@@ -229,6 +237,11 @@ function renderBillsGallery() {
             }
         });
     });
+}
+
+// A banknote's label: the checked one from periods.json, else derived from the filename
+function billLabel(bill) {
+    return (periodData.billLabels && periodData.billLabels[bill]) || formatBillName(bill);
 }
 
 // Format bill filename to readable name
@@ -253,13 +266,18 @@ function renderChart() {
         chart.destroy();
     }
 
-    const labels = exchangeRateData.dataPoints.map(d => d.date);
-    const data = exchangeRateData.dataPoints.map(d => d.rate);
+    // Subtitle = the series' own unit (a price index is not an exchange rate), and its caveats below
+    elements.chartSubtitle.textContent = `${exchangeRateData.unit || exchangeRateData.currency + ' per 1 USD'}${exchangeRateData.useLogScale ? ' (logarithmic scale)' : ''}`;
+
+    // x = months since year 0, so unevenly spaced dates are drawn at their true distance
+    const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const toIndex = s => { const [y, m] = s.split('-').map(Number); return y * 12 + (m || 1) - 1; };
+    const monthLabel = i => `${MONTHS[((Math.round(i) % 12) + 12) % 12]} ${Math.floor(Math.round(i) / 12)}`;
+    const data = exchangeRateData.dataPoints.map(d => ({ x: toIndex(d.date), y: d.rate }));
 
     chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: labels,
             datasets: [{
                 label: `${exchangeRateData.currency} per USD`,
                 data: data,
@@ -276,16 +294,19 @@ function renderChart() {
             maintainAspectRatio: false,
             interaction: {
                 intersect: false,
-                mode: 'index'
+                mode: 'nearest',
+                axis: 'x'
             },
             scales: {
                 x: {
+                    type: 'linear',
                     grid: {
                         color: 'rgba(255, 255, 255, 0.1)'
                     },
                     ticks: {
                         color: '#a0a0a0',
-                        maxTicksLimit: 8
+                        maxTicksLimit: 8,
+                        callback: value => monthLabel(value)
                     }
                 },
                 y: {
@@ -312,8 +333,9 @@ function renderChart() {
                     borderColor: '#333',
                     borderWidth: 1,
                     callbacks: {
+                        title: items => monthLabel(items[0].parsed.x),
                         label: function(context) {
-                            return `${formatLargeNumber(context.raw)} ${exchangeRateData.currency}/USD`;
+                            return `${formatLargeNumber(context.parsed.y)} ${exchangeRateData.tooltipUnit || exchangeRateData.currency + '/USD'}`;
                         }
                     }
                 }
@@ -322,13 +344,21 @@ function renderChart() {
     });
 
     // Add chart note
-    if (exchangeRateData.sources) {
-        elements.chartNote.textContent = `Source: ${exchangeRateData.sources.join(', ')}`;
-    }
+    const note = [];
+    if (exchangeRateData.notes) note.push(exchangeRateData.notes);
+    if (exchangeRateData.sources) note.push(`Source: ${exchangeRateData.sources.join(', ')}`);
+    elements.chartNote.textContent = note.join(' ');
 }
 
 // Format large numbers for display
 function formatLargeNumber(num) {
+    if (num >= 1e15) {
+        // 4.6×10¹⁹ — names stop being readable past trillions ("10000000.0T")
+        const exp = Math.floor(Math.log10(num));
+        const mant = num / Math.pow(10, exp);
+        const sup = String(exp).replace(/./g, c => '⁰¹²³⁴⁵⁶⁷⁸⁹'[c]);
+        return `${mant.toFixed(mant < 9.95 && mant % 1 ? 1 : 0).replace(/\.0$/, '')}×10${sup}`;
+    }
     if (num >= 1e12) return (num / 1e12).toFixed(1) + 'T';
     if (num >= 1e9) return (num / 1e9).toFixed(1) + 'B';
     if (num >= 1e6) return (num / 1e6).toFixed(1) + 'M';
@@ -364,8 +394,8 @@ function updateLightboxContent() {
     elements.lightboxImage.onerror = () => {
         elements.lightboxImage.src = originalPath;
     };
-    elements.lightboxImage.alt = formatBillName(bill);
-    elements.lightboxCaption.textContent = `${formatBillName(bill)} - ${periodData.currency}`;
+    elements.lightboxImage.alt = billLabel(bill);
+    elements.lightboxCaption.textContent = billLabel(bill);
 }
 
 function navigateLightbox(direction) {

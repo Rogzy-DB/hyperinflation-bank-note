@@ -618,3 +618,35 @@
         right: var(--space-sm);
     }
 }
+
+/* Source URLs are long: let them wrap instead of pushing the page sideways on a phone */
+.info-content a {
+    overflow-wrap: anywhere;
+}
+
+/* About page: one readable column */
+.about-main .container {
+    max-width: 820px;
+}
+
+.about-main .info-card {
+    margin-bottom: var(--space-lg);
+    scroll-margin-top: var(--space-lg);
+}
+
+.about-toc a {
+    display: inline-block;
+    padding: 8px 0;   /* a finger-sized target on a phone */
+}
+
+.about-toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.about-toc a,
+.about-main .info-content a {
+    color: var(--color-primary);
+}

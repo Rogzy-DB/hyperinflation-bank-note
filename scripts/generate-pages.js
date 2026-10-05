@@ -34,60 +34,30 @@ function generatePage(template, period) {
 
     // Replace placeholders
     html = html.replace(/\{\{COUNTRY\}\}/g, period.country);
-    html = html.replace(/\{\{PERIOD\}\}/g, `${period.periodStart}-${period.periodEnd}`);
+    // Turkey is a contrast case (chronic inflation), never called a hyperinflation
+    const kind = period.kind === 'chronic' ? 'Chronic Inflation' : 'Hyperinflation';
+    html = html.replace(/\{\{KIND\}\}/g, kind);
+    html = html.replace(/\{\{KIND_LC\}\}/g, kind.toLowerCase());
+    html = html.replace(/\{\{PERIOD\}\}/g, `${period.periodStart}–${period.periodEnd}`);
     html = html.replace(/\{\{CURRENCY\}\}/g, period.currency);
     html = html.replace(/\{\{ID\}\}/g, period.id);
-    html = html.replace(/\{\{COUNTRY_CODE\}\}/g, period.countryCode.toLowerCase());
+    // Flag: only when the country has one today (Soviet Russia has none on the flag CDN)
+    const flag = period.countryCode
+        ? `<img id="countryFlag" src="https://flagcdn.com/w160/${period.countryCode.toLowerCase()}.png" alt="${period.country} flag" width="80" height="60">`
+        : '';
+    html = html.replace(/\{\{FLAG_IMG\}\}/g, flag);
     // Open Graph image: the period's first banknote, web size
-    const ogBill = (period.bills && period.bills[0]) || 'TizMillio_B_Pengo.png';
+    const ogBill = (period.bills && period.bills[0]) || 'TizMillio_B_Pengo.png'; // a period with no note shares the site's image
     html = html.replace(/\{\{OG_IMAGE\}\}/g, encodeURI(`assets/bills/web/${ogBill.replace('.png', '.jpg')}`));
 
     return html;
 }
 
-// Create content directory and placeholder info.md
-function createContentDir(periodId, period) {
-    const contentDir = path.join(CONTENT_DIR, periodId);
-
-    if (!fs.existsSync(contentDir)) {
-        fs.mkdirSync(contentDir, { recursive: true });
-    }
-
-    const infoPath = path.join(contentDir, 'info.md');
-
-    // Only create if doesn't exist
-    if (!fs.existsSync(infoPath)) {
-        const placeholder = `# ${period.country} Hyperinflation (${period.periodStart}-${period.periodEnd})
-
-## Overview
-
-${period.country} experienced severe hyperinflation during the period of ${period.periodStart} to ${period.periodEnd}.
-The ${period.currency} lost significant value, with peak monthly inflation reaching ${period.peakInflation}.
-
-## Causes
-
-${period.cause}
-
-## Timeline
-
-- **Start**: ${period.periodStart}
-- **Peak**: ${period.peakMonth}
-- **End**: ${period.periodEnd}
-
-## Resolution
-
-${period.resolution}
-
-## Economic Impact
-
-*[Additional historical details to be added]*
-
-## Sources
-
-*[Sources to be added]*
-`;
-        fs.writeFileSync(infoPath, placeholder);
-        console.log(`  Created: content/${periodId}/info.md`);
+// The history texts (content/<id>/info.md) are NOT generated here: they are exported from the
+// sourced knowledge base by scripts/export-knowledge.py. A missing one is reported, never stubbed.
+function checkContent(periodId) {
+    if (!fs.existsSync(path.join(CONTENT_DIR, periodId, 'info.md'))) {
+        console.log(`  ⚠ missing: content/${periodId}/info.md (run scripts/export-knowledge.py)`);
     }
 }
 
@@ -114,8 +84,7 @@ function main() {
         console.log(`✓ Generated: pages/${period.id}.html`);
         created++;
 
-        // Create content directory and placeholder
-        createContentDir(period.id, period);
+        checkContent(period.id);
     });
 
     console.log('\n─'.repeat(50));

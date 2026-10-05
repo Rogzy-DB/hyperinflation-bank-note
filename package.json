@@ -1,13 +1,13 @@
 {
-  "name": "hyperinflation-banknote-visualizer",
-  "version": "1.0.0",
-  "description": "A web-based visualization platform for historical hyperinflation banknotes",
+  "name": "hyperinflation-archive",
+  "version": "2.0.0",
+  "description": "Hyperinflation Archive: historical banknotes, exchange-rate charts and sourced histories",
   "main": "index.html",
   "scripts": {
     "process-images": "node scripts/process-images.js",
-    "process-images:py": "python scripts/process-images.py",
+    "process-images:py": "python3 scripts/process-images.py",
     "serve": "npx serve .",
-    "build:zips": "node scripts/build-downloads.js"
+    "export-knowledge": "python3 scripts/export-knowledge.py"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
     "visualization",
     "economics"
   ],
-  "author": "",
+  "author": "Rogzy",
   "license": "MIT",
   "devDependencies": {
     "sharp": "^0.33.0"

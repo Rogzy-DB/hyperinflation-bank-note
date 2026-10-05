@@ -17,16 +17,16 @@
       "year": 1974,
       "isbn": "9781457502668",
       "description": "Lessons of the great German and American inflations.",
-      "link": "https://www.amazon.com/dp/1468165526"
+      "link": "https://www.amazon.com/dp/1457502666"
     },
     {
       "id": "economics-of-inflation",
       "title": "The Economics of Inflation",
       "author": "Costantino Bresciani-Turroni",
-      "year": 1931,
+      "year": 1937,
       "isbn": "9781610160605",
-      "description": "A comprehensive study of the German currency depreciation after World War I.",
-      "link": "https://www.amazon.com/dp/1614273189"
+      "description": "A comprehensive study of the German currency depreciation after World War I (Italian original 1931, English translation 1937).",
+      "link": "https://www.amazon.com/dp/1610160606"
     }
   ]
 }

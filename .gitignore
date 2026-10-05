@@ -40,3 +40,4 @@ __pycache__/
 .env
 venv/
 CLAUDE.md
+scripts/.guard-words

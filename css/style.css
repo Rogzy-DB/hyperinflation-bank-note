@@ -368,6 +368,19 @@ a:hover {
     transform: scale(1.05);
 }
 
+/* A period with no banknote in the collection yet: say so in the frame */
+.card-image-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image-empty::after {
+    content: attr(data-empty);
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
 .card-badge {
     position: absolute;
     top: var(--space-sm);

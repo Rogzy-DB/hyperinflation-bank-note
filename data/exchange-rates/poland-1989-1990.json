@@ -9,16 +9,46 @@
     "IMF - Moderate Inflation in Poland"
   ],
   "dataPoints": [
-    { "date": "1989-01", "rate": 510 },
-    { "date": "1989-03", "rate": 780 },
-    { "date": "1989-06", "rate": 1200 },
-    { "date": "1989-08", "rate": 2150 },
-    { "date": "1989-10", "rate": 4500 },
-    { "date": "1989-12", "rate": 6500 },
-    { "date": "1990-01", "rate": 9500 },
-    { "date": "1990-06", "rate": 9500 },
-    { "date": "1990-12", "rate": 9500 },
-    { "date": "1991-05", "rate": 11100 }
+    {
+      "date": "1989-01",
+      "rate": 510
+    },
+    {
+      "date": "1989-03",
+      "rate": 780
+    },
+    {
+      "date": "1989-06",
+      "rate": 1200
+    },
+    {
+      "date": "1989-08",
+      "rate": 2150
+    },
+    {
+      "date": "1989-10",
+      "rate": 4500
+    },
+    {
+      "date": "1989-12",
+      "rate": 6500
+    },
+    {
+      "date": "1990-01",
+      "rate": 9500
+    },
+    {
+      "date": "1990-06",
+      "rate": 9500
+    },
+    {
+      "date": "1990-12",
+      "rate": 9500
+    },
+    {
+      "date": "1991-05",
+      "rate": 11100
+    }
   ],
-  "notes": "October 1989 monthly inflation reached 55%. January 1990 fixed exchange rate at 9,500 PLZ/USD as IMF stabilization anchor. 1995 redenomination: 10,000 old złoty = 1 new złoty (PLN)."
+  "notes": "Hyperinflation from October 1989 to January 1990, peak 77.3% in January 1990 (Hanke & Krus). From 1 January 1990 the złoty was fixed to the dollar (9,500 in 1990) under the Balcerowicz Plan. In 1995, 10,000 old złoty became 1 new złoty. Approximate series, kept for its shape; individual points are not sourced one by one."
 }
