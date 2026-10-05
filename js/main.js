@@ -224,10 +224,11 @@ async function handleDownloadAll() {
         <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
         </svg>
-        Preparing ZIP...
+        <span>Preparing ZIP...</span>
     `;
 
     try {
+        await loadJSZip();
         const zip = new JSZip();
 
         // Collect all bills from all periods
@@ -281,7 +282,7 @@ async function handleDownloadAll() {
                 <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
                 </svg>
-                ${downloaded}/${total} bills...
+                <span>${downloaded}/${total} bills...</span>
             `;
         });
 
@@ -292,7 +293,7 @@ async function handleDownloadAll() {
             <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
             </svg>
-            Creating ZIP...
+            <span>Creating ZIP...</span>
         `;
 
         const content = await zip.generateAsync({ type: 'blob' });
@@ -314,6 +315,18 @@ async function handleDownloadAll() {
         btn.disabled = false;
         btn.innerHTML = originalText;
     }
+}
+
+// Load JSZip only when someone actually downloads (saves ~95 KB on every page view)
+function loadJSZip() {
+    if (window.JSZip) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';
+        script.onload = resolve;
+        script.onerror = () => reject(new Error('Failed to load JSZip'));
+        document.head.appendChild(script);
+    });
 }
 
 // Show error message

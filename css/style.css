@@ -137,7 +137,9 @@ a:hover {
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--space-sm);
+    min-height: 44px;
     padding: var(--space-sm) var(--space-lg);
     font-size: 0.9375rem;
     font-weight: 500;
@@ -191,7 +193,7 @@ a:hover {
     background: var(--color-bg-tertiary);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    padding: var(--space-sm) var(--space-md);
+    padding: 0 var(--space-md);
     flex: 1;
     max-width: 400px;
 }
@@ -203,11 +205,20 @@ a:hover {
 
 .search-box input {
     flex: 1;
+    min-width: 0;
+    min-height: 44px;
     background: none;
     border: none;
     color: var(--color-text);
-    font-size: 0.9375rem;
+    font-size: 1rem; /* < 16px makes iOS zoom in on focus */
+    font-family: inherit;
     outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.search-box:focus-within {
+    border-color: var(--color-primary);
 }
 
 .search-box input::placeholder {
@@ -224,8 +235,10 @@ a:hover {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     padding: var(--space-sm) var(--space-md);
+    min-height: 44px;
     color: var(--color-text);
     font-size: 0.875rem;
+    font-family: inherit;
     cursor: pointer;
     outline: none;
 }
@@ -278,6 +291,7 @@ a:hover {
 
 .section-header {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-md);
@@ -303,10 +317,17 @@ a:hover {
 /* ========================================
    Cards Grid
    ======================================== */
+/* Flex, not grid: a lone card on the last row sits centred instead of stuck to the left */
 .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-xl);
+}
+
+.cards-grid > .period-card {
+    flex: 0 1 calc((100% - 2 * var(--space-xl)) / 3);
+    min-width: 0;
 }
 
 .featured-grid {
@@ -437,6 +458,9 @@ a:hover {
 }
 
 .card-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--color-primary);
@@ -482,10 +506,23 @@ a:hover {
     margin-top: var(--space-xs);
 }
 
+.footer-info a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-lg);
+}
+
 .footer-links a {
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    min-height: 44px;
     color: var(--color-text-secondary);
 }
 
@@ -501,6 +538,10 @@ a:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .cards-grid > .period-card {
+        flex-basis: calc((100% - var(--space-xl)) / 2);
+    }
+
     .featured-grid {
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     }
@@ -511,9 +552,15 @@ a:hover {
         --header-height: 60px;
     }
 
+    .header {
+        position: static; /* a 150px sticky header eats a phone screen */
+        padding: var(--space-md) 0;
+    }
+
     .header-content {
         flex-direction: column;
         text-align: center;
+        gap: var(--space-md);
     }
 
     .logo h1 {
@@ -543,8 +590,8 @@ a:hover {
         font-size: 1.75rem;
     }
 
-    .cards-grid {
-        grid-template-columns: 1fr;
+    .cards-grid > .period-card {
+        flex-basis: 100%;
     }
 
     .footer-content {

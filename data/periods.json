@@ -29,7 +29,8 @@
         "10k_Mark.png",
         "1000_mark.png"
       ],
-      "featured": true
+      "featured": true,
+      "hasBooks": true
     },
     {
       "id": "austria-1921-1922",

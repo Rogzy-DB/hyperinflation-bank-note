@@ -36,6 +36,11 @@ function generatePage(template, period) {
     html = html.replace(/\{\{COUNTRY\}\}/g, period.country);
     html = html.replace(/\{\{PERIOD\}\}/g, `${period.periodStart}-${period.periodEnd}`);
     html = html.replace(/\{\{CURRENCY\}\}/g, period.currency);
+    html = html.replace(/\{\{ID\}\}/g, period.id);
+    html = html.replace(/\{\{COUNTRY_CODE\}\}/g, period.countryCode.toLowerCase());
+    // Open Graph image: the period's first banknote, web size
+    const ogBill = (period.bills && period.bills[0]) || 'TizMillio_B_Pengo.png';
+    html = html.replace(/\{\{OG_IMAGE\}\}/g, encodeURI(`assets/bills/web/${ogBill.replace('.png', '.jpg')}`));
 
     return html;
 }

@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Philippines Hyperinflation (1942-1945) - Hyperinflation Archive</title>
     <meta name="description" content="Explore banknotes from Philippines's hyperinflation period (1942-1945). View the Japanese Occupation Peso collection with exchange rate charts and historical context.">
+    <link rel="canonical" href="https://hyperinflation.rogzy.org/pages/philippines-1942-1945.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Hyperinflation Archive">
+    <meta property="og:title" content="Philippines Hyperinflation (1942-1945)">
+    <meta property="og:description" content="Banknotes of the Japanese Occupation Peso, exchange rate chart and historical context of Philippines's hyperinflation.">
+    <meta property="og:url" content="https://hyperinflation.rogzy.org/pages/philippines-1942-1945.html">
+    <meta property="og:image" content="https://hyperinflation.rogzy.org/assets/bills/web/10_centavos_Japan_Occupation.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,9 +26,6 @@
 
     <!-- Marked.js for Markdown -->
     <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
-
-    <!-- JSZip for download functionality -->
-    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="../css/style.css">
@@ -36,7 +43,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="m15 18-6-6 6-6"/>
                     </svg>
-                    Back to Collection
+                    <span>Back to Collection</span>
                 </a>
                 <div class="header-actions">
                     <a href="https://planb.academy/en/courses/hyperinflation-case-studies-caa75343-ac90-4249-bcca-0e2e57c3a0f1" target="_blank" rel="noopener" class="btn btn-secondary">
@@ -44,7 +51,7 @@
                             <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                             <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                         </svg>
-                        Free Courses on Hyperinflation
+                        <span>Free Courses on Hyperinflation</span>
                     </a>
                 </div>
             </div>
@@ -56,7 +63,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-flag">
-                    <img id="countryFlag" src="" alt="">
+                    <img id="countryFlag" src="https://flagcdn.com/w160/ph.png" alt="Philippines flag" width="80" height="60">
                 </div>
                 <div class="hero-info">
                     <h1 id="heroTitle">Philippines Hyperinflation</h1>
@@ -89,25 +96,27 @@
     <main class="detail-main">
         <div class="container">
             <div class="detail-grid">
-                <!-- Left Column: Bills Gallery -->
+                <!-- Left Column: Bills Gallery (+ books) -->
                 <section class="bills-section">
-                    <div class="section-header">
-                        <h2 class="section-title">Banknote Collection</h2>
-                        <button id="downloadPeriodBtn" class="btn btn-primary">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                                <polyline points="7,10 12,15 17,10"/>
-                                <line x1="12" y1="15" x2="12" y2="3"/>
-                            </svg>
-                            Download Bills
-                        </button>
-                    </div>
-                    <div class="bills-gallery" id="billsGallery">
-                        <!-- Populated by JS -->
+                    <div class="bills-block">
+                        <div class="section-header">
+                            <h2 class="section-title">Banknote Collection</h2>
+                            <button id="downloadPeriodBtn" class="btn btn-primary">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                <span>Download Bills</span>
+                            </button>
+                        </div>
+                        <div class="bills-gallery" id="billsGallery">
+                            <!-- Populated by JS -->
+                        </div>
                     </div>
 
                     <!-- Related Books Section -->
-                    <section class="books-section" id="booksSection" style="display: none;">
+                    <section class="books-section" id="booksSection" hidden>
                         <h2 class="section-title">Related Books</h2>
                         <div class="books-gallery" id="booksGallery">
                             <!-- Populated by JS -->
@@ -115,8 +124,23 @@
                     </section>
                 </section>
 
-                <!-- Right Column: Info & Chart -->
+                <!-- Right Column: Facts, Chart & History -->
                 <aside class="info-section">
+                    <!-- Quick Facts -->
+                    <div class="facts-card">
+                        <h3 class="card-title">Quick Facts</h3>
+                        <dl class="facts-list">
+                            <div class="fact-item">
+                                <dt>Cause</dt>
+                                <dd id="factCause">-</dd>
+                            </div>
+                            <div class="fact-item">
+                                <dt>Resolution</dt>
+                                <dd id="factResolution">-</dd>
+                            </div>
+                        </dl>
+                    </div>
+
                     <!-- Exchange Rate Chart -->
                     <div class="chart-card">
                         <h3 class="card-title">Exchange Rate Over Time</h3>
@@ -134,21 +158,6 @@
                             <div class="info-loading">Loading historical information...</div>
                         </div>
                     </div>
-
-                    <!-- Quick Facts -->
-                    <div class="facts-card">
-                        <h3 class="card-title">Quick Facts</h3>
-                        <dl class="facts-list">
-                            <div class="fact-item">
-                                <dt>Cause</dt>
-                                <dd id="factCause">-</dd>
-                            </div>
-                            <div class="fact-item">
-                                <dt>Resolution</dt>
-                                <dd id="factResolution">-</dd>
-                            </div>
-                        </dl>
-                    </div>
                 </aside>
             </div>
         </div>
@@ -156,17 +165,17 @@
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous banknote">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="m15 18-6-6 6-6"/>
             </svg>
         </button>
         <div class="lightbox-content">
-            <img id="lightboxImage" src="" alt="">
+            <!-- the <img> is created on first open: an empty src is a broken image -->
             <p class="lightbox-caption" id="lightboxCaption"></p>
         </div>
-        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next banknote">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="m9 18 6-6-6-6"/>
             </svg>
@@ -178,16 +187,16 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
-                    <p class="footer-created">Created with &lt;3 by <a href="https://github.com/Rogzy-DB" target="_blank" rel="noopener">Rogzy</a> and <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> using David St-Onge Bill's database. Learn via <a href="https://planb.academy" target="_blank" rel="noopener">Planb.Academy</a></p>
+                    <p class="footer-created">Made by <a href="https://rogzy.org/" target="_blank" rel="noopener">Rogzy</a> &amp; Luna &middot; banknote database by David St-Onge &middot; Learn via <a href="https://planb.academy" target="_blank" rel="noopener">Planb.Academy</a></p>
                     <p class="footer-disclaimer">This collection is for educational purposes. All banknotes shown are historical artifacts.</p>
-                    <p class="footer-copyright">&copy; 2025 Hyperinflation Archive. Licensed under <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a>.</p>
+                    <p class="footer-copyright">&copy; 2026 Rogzy &middot; <a href="https://opensource.org/license/mit" target="_blank" rel="noopener">MIT</a> licence</p>
                 </div>
                 <div class="footer-links">
                     <a href="https://github.com/Rogzy-DB/hyperinflation-bank-note" target="_blank" rel="noopener">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
-                        GitHub
+                        <span>GitHub</span>
                     </a>
                     <a href="../index.html">Back to Collection</a>
                 </div>
@@ -198,9 +207,7 @@
     <!-- Scripts -->
     <script src="../js/detail.js"></script>
     <script>
-        // Initialize with period ID from filename
-        const periodId = window.location.pathname.split('/').pop().replace('.html', '');
-        initDetailPage(periodId);
+        initDetailPage('philippines-1942-1945');
     </script>
 </body>
 </html>

@@ -27,18 +27,13 @@ const elements = {
     chartNote: document.getElementById('chartNote'),
     downloadPeriodBtn: document.getElementById('downloadPeriodBtn'),
     lightbox: document.getElementById('lightbox'),
-    lightboxImage: document.getElementById('lightboxImage'),
+    lightboxImage: null, // created on first open (an <img> with an empty src counts as broken)
     lightboxCaption: document.getElementById('lightboxCaption'),
     lightboxClose: document.getElementById('lightboxClose'),
     lightboxPrev: document.getElementById('lightboxPrev'),
     lightboxNext: document.getElementById('lightboxNext'),
     booksSection: document.getElementById('booksSection'),
     booksGallery: document.getElementById('booksGallery')
-};
-
-// Flag API URL
-const getFlagUrl = (countryCode) => {
-    return `https://flagcdn.com/w160/${countryCode.toLowerCase()}.png`;
 };
 
 // Initialize detail page
@@ -87,8 +82,10 @@ async function loadExchangeRateData(periodId) {
     }
 }
 
-// Load books data
+// Load books data — only for periods that declare some (`hasBooks` in periods.json),
+// so no request is made for a file that doesn't exist
 async function loadBooksData(periodId) {
+    if (!periodData.hasBooks) return;
     try {
         const response = await fetch(`../data/books/${periodId}.json`);
         if (response.ok) {
@@ -107,7 +104,7 @@ function renderBooksGallery() {
     }
 
     // Show the books section
-    elements.booksSection.style.display = 'block';
+    elements.booksSection.hidden = false;
 
     elements.booksGallery.innerHTML = booksData.books.map(book => {
         // Use Open Library Covers API with ISBN, fallback to placeholder
@@ -121,7 +118,8 @@ function renderBooksGallery() {
                 <img class="book-card-cover"
                      src="${coverUrl}"
                      alt="${book.title} cover"
-                     onerror="this.src='${placeholderCover}'">
+                     onerror="this.onerror=null;this.src='${placeholderCover}'"
+                     onload="if(this.naturalWidth<10){this.onload=null;this.src='${placeholderCover}'}">
                 <div class="book-card-info">
                     <h4 class="book-card-title">${book.title}</h4>
                     <p class="book-card-author">${book.author}</p>
@@ -140,6 +138,13 @@ async function loadInfoContent(periodId) {
         if (response.ok) {
             const markdown = await response.text();
             elements.infoContent.innerHTML = marked.parse(markdown);
+            // Wide tables scroll inside their own box instead of pushing the page sideways
+            elements.infoContent.querySelectorAll('table').forEach(table => {
+                const wrap = document.createElement('div');
+                wrap.className = 'table-wrap';
+                table.parentNode.insertBefore(wrap, table);
+                wrap.appendChild(table);
+            });
         } else {
             elements.infoContent.innerHTML = `
                 <p>Historical information for this period is being compiled.</p>
@@ -157,9 +162,9 @@ async function loadInfoContent(periodId) {
 
 // Update page content with period data
 function updatePageContent() {
-    // Flag
-    elements.countryFlag.src = getFlagUrl(periodData.countryCode);
-    elements.countryFlag.alt = `${periodData.country} flag`;
+    // Flag (src is set in the generated HTML; hide it if the flag CDN fails)
+    elements.countryFlag.onerror = () => { elements.countryFlag.style.visibility = 'hidden'; };
+    if (elements.countryFlag.complete && !elements.countryFlag.naturalWidth) elements.countryFlag.style.visibility = 'hidden';
 
     // Hero info
     elements.heroTitle.textContent = `${periodData.country} Hyperinflation`;
@@ -198,7 +203,7 @@ function renderBillsGallery() {
         const thumbPath = `../assets/bills/thumbnails/${bill.replace('.png', '.jpg')}`;
 
         return `
-            <div class="bill-card" data-index="${index}" data-bill="${bill}">
+            <div class="bill-card" data-index="${index}" data-bill="${bill}" role="button" tabindex="0" aria-label="Zoom: ${billName}">
                 <img src="${thumbPath}"
                      alt="${billName}"
                      loading="lazy"
@@ -216,6 +221,12 @@ function renderBillsGallery() {
         card.addEventListener('click', () => {
             const index = parseInt(card.dataset.index);
             openLightbox(index);
+        });
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox(parseInt(card.dataset.index));
+            }
         });
     });
 }
@@ -339,6 +350,11 @@ function closeLightbox() {
 }
 
 function updateLightboxContent() {
+    if (!elements.lightboxImage) {
+        elements.lightboxImage = document.createElement('img');
+        elements.lightboxImage.id = 'lightboxImage';
+        elements.lightbox.querySelector('.lightbox-content').prepend(elements.lightboxImage);
+    }
     const bill = periodData.bills[currentBillIndex];
     const webPath = `../assets/bills/web/${bill.replace('.png', '.jpg')}`;
     const originalPath = `../assets/bills/originals/${bill}`;
@@ -409,10 +425,11 @@ async function handleDownload() {
         <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
         </svg>
-        Preparing ZIP...
+        <span>Preparing ZIP...</span>
     `;
 
     try {
+        await loadJSZip();
         const zip = new JSZip();
         const bills = periodData.bills;
 
@@ -449,7 +466,7 @@ async function handleDownload() {
                 <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
                 </svg>
-                ${downloaded}/${total} bills...
+                <span>${downloaded}/${total} bills...</span>
             `;
         });
 
@@ -460,7 +477,7 @@ async function handleDownload() {
             <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
             </svg>
-            Creating ZIP...
+            <span>Creating ZIP...</span>
         `;
 
         const content = await zip.generateAsync({ type: 'blob' });
@@ -483,6 +500,18 @@ async function handleDownload() {
         btn.disabled = false;
         btn.innerHTML = originalText;
     }
+}
+
+// Load JSZip only when someone actually downloads (saves ~95 KB on every page view)
+function loadJSZip() {
+    if (window.JSZip) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';
+        script.onload = resolve;
+        script.onerror = () => reject(new Error('Failed to load JSZip'));
+        document.head.appendChild(script);
+    });
 }
 
 // Show error
