@@ -4,12 +4,12 @@ A web-based visualization platform for historical hyperinflation banknotes, orga
 
 ## Live Demo
 
-Visit the live site: [https://decouvreBitcoin.github.io/hyperinflation-bank-note](https://decouvreBitcoin.github.io/hyperinflation-bank-note)
+Visit the live site: [https://hyperinflation.rogzy.org](https://hyperinflation.rogzy.org)
 
 ## Features
 
 - **19 Hyperinflation Periods** from around the world
-- **44 High-Quality Banknote Images** with zoom capability
+- **45 High-Quality Banknote Images** with zoom capability
 - **Exchange Rate Charts** showing currency collapse over time
 - **Historical Context** for each period in Markdown format
 - **Download Options** - Full collection or per-period ZIPs
@@ -68,7 +68,7 @@ hyperinflation-bank-note/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/decouvreBitcoin/hyperinflation-bank-note.git
+   git clone https://github.com/Rogzy-DB/hyperinflation-bank-note.git
    cd hyperinflation-bank-note
    ```
 
