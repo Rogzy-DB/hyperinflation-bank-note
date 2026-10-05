@@ -63,8 +63,15 @@ def tidy(desc):
 
 
 def get(url):
-    with urllib.request.urlopen(url, timeout=30) as r:
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (hyperinflation-archive library fetch)"})
+    with urllib.request.urlopen(req, timeout=30) as r:
         return r.read().decode("utf-8")
+
+
+def page_ok(url):
+    """planb.academy answers 200 with an empty shell for ANY unknown path: judge the page by its <title>."""
+    m = re.search(r"<title>([^<]*)", get(url))
+    return bool(m) and m.group(1).strip() != "Plan ₿ Academy"
 
 
 def yml_field(text, key):
@@ -108,10 +115,13 @@ def main():
                 "level": yml_field(meta, "level"),
                 "tags": tags(meta),
                 "description": yml_field(en, "description"),
-                "url": f"{PAGE}/{bid}",
+                # the page lives at <folder>-<uuid>; the folder alone serves an empty shell (with HTTP 200)
+                "url": f"{PAGE}/{bid}-{yml_field(meta, 'id')}",
                 "cases": CASES.get(bid, []),
             })
             books[-1].update(FIXES.get(bid, {}))
+            if not page_ok(books[-1]["url"]):
+                raise SystemExit(f"✗ {bid}: {books[-1]['url']} is not a book page (empty shell) — nothing written")
             books[-1]["description"] = tidy(books[-1]["description"])
             print(f"✓ {bid}")
         shelves.append({"name": name, "books": books})
