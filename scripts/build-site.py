@@ -3,7 +3,7 @@
 
     python3 scripts/build-site.py [--out dist]
 
-Inputs: data/periods.json · data/eras.json · data/exchange-rates/*.json · data/books/*.json ·
+Inputs: data/periods.json · data/eras.json · data/before.json · data/library.json · data/exchange-rates/*.json · data/books/*.json ·
 content/<id>/info.md (exported from the knowledge base by export-knowledge.py) · site/style.css ·
 assets/bills/{web,thumbnails}. No JavaScript is needed to read any page: charts are SVG drawn here,
 the only script is the optional savings calculator.
