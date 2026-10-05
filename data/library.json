@@ -38,7 +38,12 @@
      "description": "Fiat Money Inflation in France, written by Andrew Dickson White in 1896, is a seminal examination of the economic crisis that transpired after the French Revolution. The book scrutinizes the catastrophic consequences of uncontrolled money printing and the over-reliance on fiat currency, which led to hyperinflation and economic turmoil in post-revolutionary France. White's work serves as a cautionary tale about the dangers of monetary policies not backed by physical reserves, demonstrating the disastrous impact of inflation on a society's economy and structure. This insightful historical analysis remains highly relevant for modern readers, providing important lessons about economic policy, fiscal responsibility, and the real-world implications of financial decisions made by governments.",
      "url": "https://planb.academy/en/resources/books/fiat-money-inflation-in-france-c487d5c1-8e15-469e-9860-2466002dcd44",
      "cases": [],
-     "cover": "assets/library/fiat-money-inflation-in-france.webp"
+     "cover": "assets/library/fiat-money-inflation-in-france.webp",
+     "free": {
+      "url": "https://cdn.mises.org/Fiat%20Money%20Inflation%20in%20France_2.pdf",
+      "format": "PDF",
+      "note": "public domain; Mises Institute scan of the 1933 printing"
+     }
     },
     {
      "id": "monetary-regimes-and-inflation-history-economic-and-political-relationships-second-edition",
@@ -195,7 +200,12 @@
      "description": "The Theory of Money and Credit by Ludwig von Mises is an influential book that explores the nature of money and its effects on economic activity. Mises' work is regarded as one of the most important contributions to economic theory, and is considered by many to be the foundation of modern Austrian economics. In this book, Mises examines the relationship between money and prices, the effects of inflation, and the role of credit in the economy. He also discusses the nature of banking and the problems associated with fractional reserve banking. This book is a must-read for anyone interested in economics and monetary policy. It provides a deep understanding of the workings of the modern economy and the role of money in it.",
      "url": "https://planb.academy/en/resources/books/the-theory-of-money-and-credit-94362cbf-337a-467a-9766-d8099b9905c7",
      "cases": [],
-     "cover": "assets/library/the-theory-of-money-and-credit.webp"
+     "cover": "assets/library/the-theory-of-money-and-credit.webp",
+     "free": {
+      "url": "https://cdn.mises.org/files/2026-04/The-Theory-of-Money-and-Credit_5.pdf",
+      "format": "PDF",
+      "note": "Mises Institute; English translation by H. E. Batson"
+     }
     },
     {
      "id": "what-has-government-done-to-our-money",
@@ -211,7 +221,12 @@
      "description": "What Has Government Done To Our Money by Murray Rothbard is a classic book that delves into the history of money and the role of government in its development. It provides a critical analysis of the central banking system and the impact of monetary policy on the economy, arguing that government intervention has caused inflation, economic instability, and a devaluation of currency. Rothbard's writing is thought-provoking and presents an alternative perspective on the nature of money and the role of government in managing the economy. This book is recommended for those interested in economics, finance, and banking, and anyone who wants to gain a deeper understanding of the relationship between money and government policy.",
      "url": "https://planb.academy/en/resources/books/what-has-government-done-to-our-money-bfc4b0eb-2da0-4a89-bfae-80e8e39425f6",
      "cases": [],
-     "cover": "assets/library/what-has-government-done-to-our-money.webp"
+     "cover": "assets/library/what-has-government-done-to-our-money.webp",
+     "free": {
+      "url": "https://cdn.mises.org/files/2024-08/What%20Has%20Government%20Done%20to%20Our%20Money%202024.pdf",
+      "format": "PDF",
+      "note": "Mises Institute, 2024 edition"
+     }
     },
     {
      "id": "the-mystery-of-banking",
@@ -227,7 +242,12 @@
      "description": "The Mystery of Banking by Murray Rothbard is a book that explores the history and workings of the banking system in the United States. The book explains how the current banking system has developed and how it works in detail, and provides a critical analysis of the problems with the system. It also discusses the role of central banks, the Federal Reserve, and their impact on the economy. This book is especially relevant for those interested in the history and economics of banking, and provides a unique perspective on the issues facing the modern financial system.",
      "url": "https://planb.academy/en/resources/books/the-mystery-of-banking-4063447d-9355-4da5-90c8-914423e7009a",
      "cases": [],
-     "cover": "assets/library/the-mystery-of-banking.webp"
+     "cover": "assets/library/the-mystery-of-banking.webp",
+     "free": {
+      "url": "https://cdn.mises.org/Mystery%20of%20Banking_2.pdf",
+      "format": "PDF",
+      "note": "Mises Institute, 2nd edition 2008"
+     }
     },
     {
      "id": "the-ethics-of-money-production",
@@ -243,7 +263,12 @@
      "description": "The Ethics of Money Production by Jörg Guido Hülsmann is a comprehensive exploration of the ethical implications of money production and the role of central banks in the modern financial system. Hülsmann delves into the historical background of money, examining the effects of monetary inflation and the erosion of purchasing power. He critiques the moral and economic consequences of fiat money and advocates for a return to sound money principles. This expert-level book offers a thought-provoking analysis of the ethical dilemmas surrounding money production and serves as a valuable resource for those interested in the intersection of economics, technology, and history, particularly in the context of Bitcoin and alternative monetary systems.",
      "url": "https://planb.academy/en/resources/books/the-ethics-of-money-production-e461d9e5-a687-421b-8aa8-75dc3493e144",
      "cases": [],
-     "cover": "assets/library/the-ethics-of-money-production.webp"
+     "cover": "assets/library/the-ethics-of-money-production.webp",
+     "free": {
+      "url": "https://cdn.mises.org/The%20Ethics%20of%20Money%20Production_2.pdf",
+      "format": "PDF",
+      "note": "Mises Institute, 2008"
+     }
     },
     {
      "id": "money-sound-and-unsound",
@@ -259,7 +284,12 @@
      "description": "\"Money Sound and Unsound\" by Joseph Salerno is an expert-level book that explores the history of money and how different forms of money have impacted economies throughout history. The author examines various economic theories and policies related to money, including the gold standard, central banking, and inflation, and how they have affected financial markets and societies. Salerno's analysis highlights the consequences of unsound monetary policies and suggests a return to sound monetary principles to achieve economic stability and prosperity. The book is written for individuals who have a deep interest in economics and finance, and want to gain a better understanding of the role of money in society.",
      "url": "https://planb.academy/en/resources/books/money-sound-and-unsound-7f2abef6-43ec-4a52-b670-d100d81688ab",
      "cases": [],
-     "cover": "assets/library/money-sound-and-unsound.webp"
+     "cover": "assets/library/money-sound-and-unsound.webp",
+     "free": {
+      "url": "https://cdn.mises.org/Money%2C%20Sound%20and%20Unsound_2.pdf",
+      "format": "PDF",
+      "note": "Mises Institute, CC BY 3.0"
+     }
     },
     {
      "id": "honest-money",
@@ -275,13 +305,18 @@
      "description": "",
      "url": "https://planb.academy/en/resources/books/honest-money-a1a26f66-e370-4d30-8f4c-018df2c98818",
      "cases": [],
-     "cover": "assets/library/honest-money.webp"
+     "cover": "assets/library/honest-money.webp",
+     "free": {
+      "url": "https://cdn.mises.org/Honest%20Money%20second%20edition%202015.pdf",
+      "format": "PDF",
+      "note": "2nd edition 2015, CC BY-NC-ND 4.0"
+     }
     },
     {
      "id": "how-is-fiat-money-possible",
      "title": "How Is Fiat Money Possible?",
      "author": "Hans-Hermann Hoppe",
-     "year": 1988,
+     "year": 1994,
      "level": "advanced",
      "tags": [
       "finance",
@@ -291,7 +326,12 @@
      "description": "",
      "url": "https://planb.academy/en/resources/books/how-is-fiat-money-possible-1683de3e-1bae-4b67-9061-92cca1f80ae6",
      "cases": [],
-     "cover": "assets/library/how-is-fiat-money-possible.webp"
+     "cover": "assets/library/how-is-fiat-money-possible.webp",
+     "free": {
+      "url": "https://cdn.mises.org/rae7_2_3_3.pdf",
+      "format": "PDF",
+      "note": "Review of Austrian Economics 7(2), 1994, open access"
+     }
     },
     {
      "id": "the-creature-from-jekyll-island",
@@ -323,7 +363,12 @@
      "description": "Economics in One Lesson, penned by Henry Hazlitt in 1946, is a classic primer that breaks down complex economic concepts into comprehensible terms. The book focuses on the fundamental lesson that the long-term consequences of any economic action should be taken into account, not merely the immediate results. Hazlitt dispels prevalent economic fallacies, fostering an understanding of free-market economics and its broader societal implications. It serves as a great entry point for beginners and a reference for seasoned individuals in the realm of economics.",
      "url": "https://planb.academy/en/resources/books/economics-in-one-lesson-04d2656f-19fa-49ee-990d-01a4228b7acd",
      "cases": [],
-     "cover": "assets/library/economics-in-one-lesson.webp"
+     "cover": "assets/library/economics-in-one-lesson.webp",
+     "free": {
+      "url": "https://fee.org/resources/economics-in-one-lesson/",
+      "format": "web",
+      "note": "FEE, the 1946/1948 text"
+     }
     },
     {
      "id": "shelling-out-origins-money",
@@ -339,7 +384,12 @@
      "description": "The precursors of money, along with language, enabled early modern humans to solve problems of cooperation that other animals cannot – including problems of reciprocal altruism, kin altruism, and the mitigation of aggression. These precursors shared with non-fiat currencies very specific characteristics – they were not merely symbolic or decorative objects.",
      "url": "https://planb.academy/en/resources/books/shelling-out-origins-money-7ff29356-a23e-48bb-9def-80695e739c47",
      "cases": [],
-     "cover": "assets/library/shelling-out-origins-money.webp"
+     "cover": "assets/library/shelling-out-origins-money.webp",
+     "free": {
+      "url": "https://nakamotoinstitute.org/library/shelling-out/",
+      "format": "web",
+      "note": "Satoshi Nakamoto Institute, redistribution granted by the author"
+     }
     },
     {
      "id": "on-the-origins-of-money",
@@ -354,7 +404,12 @@
      "description": "",
      "url": "https://planb.academy/en/resources/books/on-the-origins-of-money-532e2c78-9846-4882-b4be-e44c20f3146a",
      "cases": [],
-     "cover": "assets/library/on-the-origins-of-money.webp"
+     "cover": "assets/library/on-the-origins-of-money.webp",
+     "free": {
+      "url": "https://cdn.mises.org/On%20the%20Origins%20of%20Money_5.pdf",
+      "format": "PDF",
+      "note": "public domain text (tr. C. A. Foley, 1892); Mises edition CC BY 3.0"
+     }
     },
     {
      "id": "traictie-premiere-invention-monnoies",
@@ -370,7 +425,12 @@
      "description": "Written around 1360 by the Bishop of Lisieux, Nicolas Oresme's treatise on the origin of money is one of the earliest works of monetary theory in the Western tradition. Oresme argues that money belongs to the community that uses it, not to the sovereign, and that rulers who debase the currency are committing a form of theft against their subjects.",
      "url": "https://planb.academy/en/resources/books/traictie-premiere-invention-monnoies-0d91d52c-ed04-4cdd-baa6-590b3544d40a",
      "cases": [],
-     "cover": "assets/library/traictie-premiere-invention-monnoies.webp"
+     "cover": "assets/library/traictie-premiere-invention-monnoies.webp",
+     "free": {
+      "url": "https://archive.org/details/bub_gb_KLkZAAAAYAAJ",
+      "format": "PDF",
+      "note": "public domain; Wolowski edition, Paris 1864 (also on Gallica)"
+     }
     },
     {
      "id": "human-action",
@@ -386,7 +446,12 @@
      "description": "In \"Human Action\", renowned Austrian economist Ludwig von Mises profoundly explores the philosophy behind economic activity, emphasizing the central role of human choice and its subsequent consequences. First published in 1949, this 85-chapter magnum opus has become an enduring touchstone in the field of economic thought, cherished for its comprehensive and penetrating analysis of economic phenomena. Mises employs the concept of praxeology, the science of human action, as a foundational premise in dissecting and understanding economic activity. His holistic perspective encapsulates not only financial transactions or the exchange of goods and services, but also the full gamut of decisions and actions undertaken by individuals that drive economic phenomena. The book unravels complex topics such as the nature and causes of the business cycle, the market as an economic system, the role of knowledge and uncertainty in economic decision-making, and the vital role of entrepreneurship. Moreover, Mises thoughtfully examines the consequences of governmental interference in the economy, ultimately endorsing the laissez-faire economic system as the most viable path to individual freedom and prosperity. \"Human Action\" is not merely an economics book; it's an intellectual voyage into the depths of human decision-making and its intricate relationship with societal systems. It's a must-read for economists, philosophers, and anyone interested in gaining a deeper understanding of the mechanisms underlying the economic world around us. Its insightful observations continue to resonate, making it a classic that stands the test of time.",
      "url": "https://planb.academy/en/resources/books/human-action-bbca4b97-baac-4d75-87ab-630f9f8fad4f",
      "cases": [],
-     "cover": "assets/library/human-action.webp"
+     "cover": "assets/library/human-action.webp",
+     "free": {
+      "url": "https://cdn.mises.org/files/2024-09/Human%20Action.pdf",
+      "format": "PDF",
+      "note": "Mises Institute re-issue of the 1949 first edition"
+     }
     },
     {
      "id": "du-credit-et-des-banques",
@@ -402,7 +467,12 @@
      "description": "Charles Coquelin's treatise on credit and banking (1848) is one of the strongest arguments for free banking in the French liberal tradition. Coquelin demonstrates that government monopoly over money and credit leads to instability, while competition among banks produces sounder currencies and more efficient allocation of capital.",
      "url": "https://planb.academy/en/resources/books/du-credit-et-des-banques-4a34b98d-feda-4228-bf48-e14df159cf11",
      "cases": [],
-     "cover": "assets/library/du-credit-et-des-banques.webp"
+     "cover": "assets/library/du-credit-et-des-banques.webp",
+     "free": {
+      "url": "https://archive.org/details/ducrditetdesba00coquuoft",
+      "format": "PDF",
+      "note": "public domain; 1848 first edition"
+     }
     }
    ]
   },
@@ -493,7 +563,7 @@
      "id": "gradually-then-suddenly",
      "title": "Gradually, Then Suddenly",
      "author": "Parker A. Lewis",
-     "year": 2024,
+     "year": 2023,
      "level": "beginner",
      "tags": [
       "finance",
@@ -502,7 +572,12 @@
      "description": "It is all a bit poetic when you think about it. The fall of 2008 can be interpreted in two ways: as a seasonal marker of the time of year when everything blew up, or a marker of greater significance that represents the complete and permanent departure from any semblance of sane monetary policy. The response to the Great Financial Crisis marked a point of no return. The powers that be could have made the hard decision to let the markets clear and wipe out all of the bad debts in the system, but instead, they chose to double down on the madness—creating a system of ever more perverse incentives that have only exacerbated the original problems un- derlying the crisis. The normalization of bailouts and money printing that began in 2008 sent the United States down a path of monetary ruin that cannot be walked back or undone. The fiat system is too far gone to be fixed. As our good friend Parker likes to say, “There is simply too much debt and not enough dollars.”",
      "url": "https://planb.academy/en/resources/books/gradually-then-suddenly-f2e8f052-ef12-46c2-9b4d-765c0d914f66",
      "cases": [],
-     "cover": "assets/library/gradually-then-suddenly.webp"
+     "cover": "assets/library/gradually-then-suddenly.webp",
+     "free": {
+      "url": "https://nakamotoinstitute.org/library/gradually-then-suddenly/table-of-contents/",
+      "format": "web",
+      "note": "free online at the Satoshi Nakamoto Institute"
+     }
     },
     {
      "id": "resistance-money",

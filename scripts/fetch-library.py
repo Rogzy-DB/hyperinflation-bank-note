@@ -49,13 +49,35 @@ FIXES = {
     "this-time-is-different-eight-centuries-of-financial-folly": {"title": "This Time Is Different: Eight Centuries of Financial Folly"},
     "the-mandibles": {"title": "The Mandibles: A Family, 2029–2047"},
     "debt-the-first-5000-years": {"title": "Debt: The First 5,000 Years"},
-    "how-is-fiat-money-possible": {"title": "How Is Fiat Money Possible?"},
+    "how-is-fiat-money-possible": {"title": "How Is Fiat Money Possible?", "year": 1994},
+    "gradually-then-suddenly": {"year": 2023},
     # years: the upstream file gives the edition, not the first publication (checked 2026-10-05)
     "hard-boiled-egg-index": {"year": 2019, "title": "Hard-Boiled Egg Index: Surviving Zimbabwe's Hyperinflation",
                               "description": "A Zimbabwean's first-hand account of living through the 2007–2009 hyperinflation."},
     "argentarius": {"year": 1933, "title": "Argentarius: Letters of a Bank Director to His Son"},
     "big-debt-crisis": {"title": "Big Debt Crises"},
     "the-price-of-tomorrow": {"title": "The Price of Tomorrow: Why Deflation Is the Key to an Abundant Future"},
+}
+
+
+# legal free editions, each opened and checked 2026-10-05 (research agent): linked, never re-hosted.
+# Most Mises Institute files are free downloads but remain their copyright; licence noted where it is open.
+FREE = {
+    "fiat-money-inflation-in-france": {"url": "https://cdn.mises.org/Fiat%20Money%20Inflation%20in%20France_2.pdf", "format": "PDF", "note": "public domain; Mises Institute scan of the 1933 printing"},
+    "the-theory-of-money-and-credit": {"url": "https://cdn.mises.org/files/2026-04/The-Theory-of-Money-and-Credit_5.pdf", "format": "PDF", "note": "Mises Institute; English translation by H. E. Batson"},
+    "what-has-government-done-to-our-money": {"url": "https://cdn.mises.org/files/2024-08/What%20Has%20Government%20Done%20to%20Our%20Money%202024.pdf", "format": "PDF", "note": "Mises Institute, 2024 edition"},
+    "the-mystery-of-banking": {"url": "https://cdn.mises.org/Mystery%20of%20Banking_2.pdf", "format": "PDF", "note": "Mises Institute, 2nd edition 2008"},
+    "the-ethics-of-money-production": {"url": "https://cdn.mises.org/The%20Ethics%20of%20Money%20Production_2.pdf", "format": "PDF", "note": "Mises Institute, 2008"},
+    "money-sound-and-unsound": {"url": "https://cdn.mises.org/Money%2C%20Sound%20and%20Unsound_2.pdf", "format": "PDF", "note": "Mises Institute, CC BY 3.0"},
+    "honest-money": {"url": "https://cdn.mises.org/Honest%20Money%20second%20edition%202015.pdf", "format": "PDF", "note": "2nd edition 2015, CC BY-NC-ND 4.0"},
+    "how-is-fiat-money-possible": {"url": "https://cdn.mises.org/rae7_2_3_3.pdf", "format": "PDF", "note": "Review of Austrian Economics 7(2), 1994, open access"},
+    "economics-in-one-lesson": {"url": "https://fee.org/resources/economics-in-one-lesson/", "format": "web", "note": "FEE, the 1946/1948 text"},
+    "shelling-out-origins-money": {"url": "https://nakamotoinstitute.org/library/shelling-out/", "format": "web", "note": "Satoshi Nakamoto Institute, redistribution granted by the author"},
+    "on-the-origins-of-money": {"url": "https://cdn.mises.org/On%20the%20Origins%20of%20Money_5.pdf", "format": "PDF", "note": "public domain text (tr. C. A. Foley, 1892); Mises edition CC BY 3.0"},
+    "traictie-premiere-invention-monnoies": {"url": "https://archive.org/details/bub_gb_KLkZAAAAYAAJ", "format": "PDF", "note": "public domain; Wolowski edition, Paris 1864 (also on Gallica)"},
+    "human-action": {"url": "https://cdn.mises.org/files/2024-09/Human%20Action.pdf", "format": "PDF", "note": "Mises Institute re-issue of the 1949 first edition"},
+    "du-credit-et-des-banques": {"url": "https://archive.org/details/ducrditetdesba00coquuoft", "format": "PDF", "note": "public domain; 1848 first edition"},
+    "gradually-then-suddenly": {"url": "https://nakamotoinstitute.org/library/gradually-then-suddenly/table-of-contents/", "format": "web", "note": "free online at the Satoshi Nakamoto Institute"},
 }
 
 
@@ -146,6 +168,8 @@ def main():
             if not page_ok(books[-1]["url"]):
                 raise SystemExit(f"✗ {bid}: {books[-1]['url']} is not a book page (empty shell) — nothing written")
             books[-1]["description"] = tidy(books[-1]["description"])
+            if bid in FREE:
+                books[-1]["free"] = FREE[bid]
             print(f"✓ {bid}")
         shelves.append({"name": name, "books": books})
     out = {"source": "Plan B Network, bitcoin-educational-content (https://github.com/PlanB-Network/bitcoin-educational-content)",
