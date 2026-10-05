@@ -36,9 +36,13 @@ NOTE_COUNT = sum(len(p["bills"]) for p in PERIODS)
 ERA_OF = {i: e for e in ERAS for i in e["ids"]}
 LIBRARY = json.loads((ROOT / "data/library.json").read_text()) if (ROOT / "data/library.json").exists() else {"shelves": []}
 LIB_BOOKS = [b for s in LIBRARY["shelves"] for b in s["books"]]
-PLANB_CREDIT = ('Book descriptions from <a href="https://github.com/PlanB-Network/bitcoin-educational-content">Plan B Network’s open '
-                'educational content</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, '
+PLANB_CREDIT = ('Books, covers and descriptions from <a href="https://github.com/PlanB-Network/bitcoin-educational-content">Plan B '
+                'Network’s open educational content</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, '
                 'with titles, names and punctuation corrected.')
+PLANB_THANKS = """<aside class="thanks" aria-label="Thanks"><p><strong>Thank you to Plan B Academy</strong> for collecting this open-source library.
+We took it from their <a href="https://github.com/PlanB-Network/bitcoin-educational-content">repository</a>. Go further on
+<a href="https://planb.academy/en">their website</a>, in <a href="https://planb.academy/en/resources/books">their full library</a>,
+and with the free course <a href="https://planb.academy/en/courses/hyperinflation-case-studies-caa75343-ac90-4249-bcca-0e2e57c3a0f1">Hyperinflation Case Studies</a>.</p></aside>"""
 
 
 def rates(pid):
@@ -585,13 +589,15 @@ def case_data(p):
 
 # ------------------------------------------------------------------ library
 def book_card(b, rel):
+    """no outbound link per book until Plan B has a full summary for each (Rogzy, 2026-10-05)."""
     meta = " · ".join(str(x) for x in (b.get("author"), b.get("year"), b.get("level")) if x)
     desc = f'<p>{E(b["description"])}</p>' if b.get("description") else ""
     cases = ""
     if b.get("cases"):
         cases = '<p class="mono">Cases: ' + ", ".join(f'<a href="{rel}{c}/">{E(BY_ID[c]["country"])}</a>' for c in b["cases"] if c in BY_ID) + "</p>"
-    return (f'<article class="book"><h3><a href="{E(b["url"])}">{E(b["title"])}</a></h3><p class="mono">{E(meta)}</p>{desc}{cases}'
-            f'<a class="more" href="{E(b["url"])}">On Plan B Academy →</a></article>')
+    cover = (f'<img class="cover" src="{rel}{E(b["cover"])}" alt="Cover of {E(b["title"])}" loading="lazy" width="110" height="165">'
+             if b.get("cover") else '<span class="cover"></span>')
+    return f'<article class="book">{cover}<div><h3>{E(b["title"])}</h3><p class="mono">{E(meta)}</p>{desc}{cases}</div></article>'
 
 
 def library():
@@ -600,9 +606,8 @@ def library():
                       + "".join(book_card(b, "../") for b in s["books"]) + "</div></section>"
                       for i, s in enumerate(LIBRARY["shelves"]))
     body = f"""<div class="wrap chead"><p class="mono"><a href="../">Home</a> / Library</p><h1>The<br>Library</h1>
-<p class="dek">The books to go further: hyperinflations told by those who studied them, what money is and what breaks it, and the way out.
-Each one opens on Plan B Academy, where many have a summary or a course.</p></div>
-<div class="wrap">{shelves}<p class="mono">{PLANB_CREDIT}</p></div>"""
+<p class="dek">The books to go further: hyperinflations told by those who studied them, what money is and what breaks it, and the way out.</p></div>
+<div class="wrap">{PLANB_THANKS}{shelves}<p class="mono">{PLANB_CREDIT}</p></div>"""
     return shell("../", "Library — Hyperinflation Archive",
                  "Books on hyperinflation, money and the way out, from Plan B Academy's library.", "library/", body)
 
@@ -617,6 +622,7 @@ def about():
 <li><strong>Site, code and texts:</strong> © {YEAR} Rogzy, under the <a href="https://github.com/Rogzy-DB/hyperinflation-bank-note/blob/main/LICENSE">MIT licence</a>. Reuse them, commercially too, as long as you keep the copyright and licence notice.</li>
 <li><strong>Banknote images:</strong> scans from <strong>David St-Onge</strong>’s collection, shown with his permission. They are <strong>not</strong> covered by the MIT licence: the downloads are for personal and educational use; any other reuse needs his permission.</li>
 <li><strong>The banknote designs</strong> belong to the central banks and governments that issued them. Almost all were withdrawn long ago; a few recent ones (Lebanon 2021, Venezuela 2020) may still be legal tender and are shown for history and education, not for reproduction.</li>
+<li><strong>Library:</strong> books, covers and descriptions from <a href="https://github.com/PlanB-Network/bitcoin-educational-content">Plan B Network’s open educational content</a> (CC BY-SA 4.0); the book covers belong to their publishers.</li>
 <li><strong>Third parties:</strong> fonts from Google Fonts (Archivo, IBM Plex Mono).</li>
 </ul>
 <h2 id="data">How the data works</h2>
@@ -708,6 +714,8 @@ def main():
     (OUT / "pages").mkdir()
     for sub in ("web", "thumbnails"):
         shutil.copytree(ROOT / "assets/bills" / sub, OUT / "assets/bills" / sub)
+    if (ROOT / "assets/library").exists():
+        shutil.copytree(ROOT / "assets/library", OUT / "assets/library")
     shutil.copy(ROOT / "site/style.css", OUT / "style.css")
     (OUT / "favicon.svg").write_text(FAVICON)
     (OUT / "index.html").write_text(home())

@@ -4,8 +4,8 @@
     python3 scripts/fetch-library.py
 
 Source: https://github.com/PlanB-Network/bitcoin-educational-content (resources/books/<id>/book.yml + en.yml),
-licensed CC BY-SA 4.0. The descriptions are reused under that licence, with attribution on the site; covers are
-NOT copied (they belong to the publishers). The list of books is ours: SHELVES below. The snapshot is committed,
+licensed CC BY-SA 4.0. The descriptions are reused under that licence, with attribution on the site; the covers come
+from the same repo (assets/cover_en.webp) into assets/library/<id>.webp. The list of books is ours: SHELVES below. The snapshot is committed,
 so building the site never needs the network.
 """
 import json
@@ -68,6 +68,12 @@ def get(url):
         return r.read().decode("utf-8")
 
 
+def get_bytes(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (hyperinflation-archive library fetch)"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return r.read()
+
+
 def page_ok(url):
     """planb.academy answers 200 with an empty shell for ANY unknown path: judge the page by its <title>."""
     m = re.search(r"<title>([^<]*)", get(url))
@@ -120,6 +126,17 @@ def main():
                 "cases": CASES.get(bid, []),
             })
             books[-1].update(FIXES.get(bid, {}))
+            cover = yml_field(en, "cover")
+            if cover:
+                dest = ROOT / "assets/library" / f"{bid}.webp"
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                if not dest.exists():
+                    dest.write_bytes(get_bytes(f"{RAW}/{bid}/assets/{cover}"))
+                    from PIL import Image  # shrink: cards show them ~110 px wide, 2× for sharp screens
+                    im = Image.open(dest)
+                    im.thumbnail((300, 460))
+                    im.save(dest, "WEBP", quality=82)
+                books[-1]["cover"] = f"assets/library/{bid}.webp"
             if not page_ok(books[-1]["url"]):
                 raise SystemExit(f"✗ {bid}: {books[-1]['url']} is not a book page (empty shell) — nothing written")
             books[-1]["description"] = tidy(books[-1]["description"])

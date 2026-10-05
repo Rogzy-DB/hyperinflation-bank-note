@@ -143,10 +143,12 @@ footer.foot a { color: var(--bg); padding: 4px 0; display: inline-block; }
 }
 
 /* library */
-.books { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
-.book { background: var(--card); border: 1px solid var(--rule); padding: 16px 18px; display: flex; flex-direction: column; }
-.book h3 { font-size: 22px; font-stretch: 85%; text-transform: none; line-height: 1.15; }
-.book h3 a { text-decoration: none; }
+.thanks { border-left: 4px solid var(--acc); background: var(--card); padding: 14px 18px; margin: 0 0 30px; max-width: 900px; font-size: 16px; }
+.thanks p { margin: 0; }
+.books { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+.book { background: var(--card); border: 1px solid var(--rule); padding: 16px; display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: start; }
+.book .cover { width: 110px; height: auto; display: block; box-shadow: 0 6px 14px -8px rgba(0, 0, 0, .45); background: #ebe8e0; aspect-ratio: 2 / 3; }
+.book h3 { font-size: 21px; font-stretch: 85%; text-transform: none; line-height: 1.15; }
 .book p { font-size: 15px; margin: 8px 0 0; }
-.book .more { margin-top: auto; padding-top: 12px; font-weight: 600; font-size: 14px; }
 .book p:not(.mono) { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-width: 420px) { .book { grid-template-columns: 84px 1fr; gap: 12px; } .book .cover { width: 84px; } .books { grid-template-columns: 1fr; } }
