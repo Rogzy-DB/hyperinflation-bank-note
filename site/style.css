@@ -189,3 +189,8 @@ body:has(.modal:target) { overflow: hidden; }
 .older h3 { font-size: 20px; text-transform: uppercase; margin: 4px 0 6px; }
 .older p { margin: 0 0 6px; }
 .before > .dek { max-width: 44em; margin: 0; }
+.nf h1 em { font-style: normal; color: var(--acc); }
+.nf-note { margin: 28px 0 0; max-width: 600px; }
+.nf-note img { width: 100%; height: auto; display: block; filter: grayscale(.35); transform: rotate(-2deg); box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+.nf-note figcaption { margin-top: 24px; }
+.nf-links { margin: 26px 0 40px; font-size: 18px; }

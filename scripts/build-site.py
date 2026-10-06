@@ -728,9 +728,16 @@ def about():
 
 
 def notfound():
-    body = """<div class="wrap chead"><h1>Page not<br>found</h1><p class="dek">This page does not exist, or it moved when the archive was rebuilt.
-<a href="/">Start from the timeline</a>.</p></div>"""
-    return shell("/", "Not found — Hyperinflation Archive", "Page not found.", "404.html", body)
+    body = """<div class="wrap chead nf">
+ <p class="mono">Error 404 · monthly inflation: ∞ · purchasing power: 0</p>
+ <h1>This page is<br>worth <em>nothing</em></h1>
+ <p class="dek">Like the pengő, the Papiermark and the Zimbabwe dollar, the page you are looking for has lost all of its value.
+ We printed more links, removed a few zeros, announced a new currency. It did not come back.</p>
+ <figure class="nf-note"><img src="/assets/bills/web/100_Trillion_Zimbabwe.jpg" alt="A 100 trillion Zimbabwe dollar banknote" width="600" height="298">
+ <figcaption class="mono">100 trillion Zimbabwe dollars, 2008. Lots of zeros, nothing behind them. Same as this URL.</figcaption></figure>
+ <p class="nf-links"><a href="/">Back to the timeline</a> · <a href="/#cases">Pick a crisis</a> · <a href="/library/">Read about it</a></p>
+</div>"""
+    return shell("/", "Not found — Hyperinflation Archive", "This page lost all its value.", "404.html", body)
 
 
 def llms():
