@@ -389,6 +389,7 @@ def home():
 <section class="hero">
  <p class="mono">1921 → 2023 · {len(HYPER)} hyperinflations · {NOTE_COUNT} banknotes · every figure sourced</p>
  <h1>A century of <em>dying</em> money</h1>
+ <div class="hero-row">
  <p class="dek">Currencies die fast, and they die often. Steve Hanke counts 62 hyperinflations in recorded history, all but one
  since 1920, most of them within living memory. Almost every one began the same way: a state spent more than it could tax or
  borrow, and its central bank paid the difference with new money. Savings vanished, wages were spent the hour they were paid,
@@ -396,6 +397,7 @@ def home():
  during it, how it ended, the banknotes and the data.</p>
  <figure class="quote"><blockquote>{HAYEK["text"]}</blockquote>
  <figcaption class="mono">F. A. Hayek, <a href="{HAYEK["url"]}"><cite>{HAYEK["title"]}</cite></a>, {HAYEK["where"]}</figcaption></figure>
+ </div>
 </section>
 <div class="tl" id="timeline">{timeline_svg()}</div>
 <div class="legend mono"><span>Worst month:</span>{''.join(f'<i style="background:{c}"></i>' for c in RAMP[1:])}<span>50% → 10¹⁶ % in one month</span><span>· dashed: never 50% (contrast)</span></div>

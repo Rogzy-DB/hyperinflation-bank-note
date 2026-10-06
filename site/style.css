@@ -198,3 +198,7 @@ body:has(.modal:target) { overflow: hidden; }
 .nf-code { font-stretch: 80%; font-weight: 800; font-size: clamp(72px, 17vw, 210px); line-height: .9; letter-spacing: -.02em;
   text-transform: uppercase; color: var(--acc); margin: 0 0 18px; }
 .nf h1 { font-size: clamp(34px, 5.5vw, 68px); }
+.hero-row { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 48px; align-items: start; margin-top: 18px; }
+.hero .hero-row p.dek { margin: 0; }
+.hero-row .quote { margin: 0; }
+@media (max-width: 860px) { .hero-row { grid-template-columns: 1fr; gap: 0; } .hero-row .quote { margin-top: 26px; } }
