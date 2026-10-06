@@ -402,8 +402,8 @@ def home():
 <div class="tl" id="timeline">{timeline_svg()}</div>
 <div class="legend mono"><span>Worst month:</span>{''.join(f'<i style="background:{c}"></i>' for c in RAMP[1:])}<span>50% → 10¹⁶ % in one month</span><span>· dashed: never 50% (contrast)</span></div>
 <div id="cases">{''.join(eras)}</div>
-<figure class="quote end"><blockquote>{E(VOLTAIRE["text"])}</blockquote>
- <figcaption class="mono">{VOLTAIRE["credit"]}</figcaption></figure>
+<section class="big-quote" aria-label="A quote"><figure><blockquote>{E(VOLTAIRE["text"]).replace("zero.", "<em>zero</em>.")}</blockquote>
+ <figcaption class="mono">{VOLTAIRE["credit"]}</figcaption></figure></section>
 <section class="era before" id="before" aria-labelledby="before-h"><header><h2 id="before-h">And even before</h2>
 <span class="mono">{BEFORE["years"]} · it was always the case</span></header>
 <p class="dek">{BEFORE["intro"]}</p>

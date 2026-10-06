@@ -184,7 +184,6 @@ body:has(.modal:target) { overflow: hidden; }
 .quote { margin: 26px 0 0; max-width: 40em; border-left: 3px solid var(--acc); padding: 2px 0 2px 18px; }
 .quote blockquote { margin: 0; font-size: 19px; font-style: italic; color: #2c2b28; }
 .quote figcaption { margin-top: 8px; }
-.quote.end { margin: 44px 0 8px; }
 .older { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; }
 .older h3 { font-size: 20px; text-transform: uppercase; margin: 4px 0 6px; }
 .older p { margin: 0 0 6px; }
@@ -202,3 +201,12 @@ body:has(.modal:target) { overflow: hidden; }
 .hero .hero-row p.dek { margin: 0; }
 .hero-row .quote { margin: 0; }
 @media (max-width: 860px) { .hero-row { grid-template-columns: 1fr; gap: 0; } .hero-row .quote { margin-top: 26px; } }
+.big-quote { border-top: 3px solid var(--ink); padding: 72px 0 64px; text-align: center; }
+.big-quote figure { margin: 0 auto; max-width: 940px; }
+.big-quote figcaption { max-width: 34em; margin-left: auto; margin-right: auto; }
+.big-quote em { font-style: normal; color: var(--acc); }
+.big-quote blockquote { margin: 0; font-size: clamp(30px, 4.6vw, 56px); font-weight: 800; font-stretch: 80%; line-height: 1.08;
+  text-transform: uppercase; letter-spacing: -.01em; color: var(--ink); }
+.big-quote blockquote::before { content: "« "; color: var(--acc); }
+.big-quote blockquote::after { content: " »"; color: var(--acc); }
+.big-quote figcaption { margin-top: 20px; }
