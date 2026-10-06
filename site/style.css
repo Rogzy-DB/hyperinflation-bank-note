@@ -194,3 +194,7 @@ body:has(.modal:target) { overflow: hidden; }
 .nf-note img { width: 100%; height: auto; display: block; filter: grayscale(.35); transform: rotate(-2deg); box-shadow: 0 6px 24px rgba(0,0,0,.18); }
 .nf-note figcaption { margin-top: 24px; }
 .nf-links { margin: 26px 0 40px; font-size: 18px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.nf-code { font-stretch: 80%; font-weight: 800; font-size: clamp(72px, 17vw, 210px); line-height: .9; letter-spacing: -.02em;
+  text-transform: uppercase; color: var(--acc); margin: 0 0 18px; }
+.nf h1 { font-size: clamp(34px, 5.5vw, 68px); }

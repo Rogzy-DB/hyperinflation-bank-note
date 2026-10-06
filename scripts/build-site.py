@@ -729,8 +729,9 @@ def about():
 
 def notfound():
     body = """<div class="wrap chead nf">
- <p class="mono">Error 404 · monthly inflation: ∞ · purchasing power: 0</p>
- <h1>This page is<br>worth <em>nothing</em></h1>
+ <p class="nf-code" aria-hidden="true">Error 404</p>
+ <p class="mono">monthly inflation: ∞ · purchasing power: 0</p>
+ <h1><span class="sr-only">Error 404: </span>This page is<br>worth <em>nothing</em></h1>
  <p class="dek">Like the pengő, the Papiermark and the Zimbabwe dollar, the page you are looking for has lost all of its value.
  We printed more links, removed a few zeros, announced a new currency. It did not come back.</p>
  <figure class="nf-note"><img src="/assets/bills/web/100_Trillion_Zimbabwe.jpg" alt="A 100 trillion Zimbabwe dollar banknote" width="600" height="298">
